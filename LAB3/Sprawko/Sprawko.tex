@@ -10,6 +10,7 @@
 \usepackage{amsmath}
 \usepackage{wrapfig}
 \usepackage{mathtools}
+\usepackage{gensymb}
 \usepackage[table]{xcolor}
 \usepackage{multirow}
 \usepackage{polski}
@@ -21,45 +22,45 @@ Marcin Gruchała 248982\\}
 \begin{document}
 \maketitle
 \begin{center}
+    \vspace{1ex}
     $
     \begin{cases}
         0=Q_{g} -K_{cw} (T_{wew} - T_{zew})-K_{cwp} (T_{wew} -T_{p})\\
         0=K_{cwp}(T_{wew}-T_{p})-K_{cp}(T_{p}-T_{zew})
     \end{cases}
     $
-    \vspace{1ex}
-    $
-    ,gdzie \ K_{cwp}=\alpha\cdot K_{cw},\ \alpha=0.25
-    $
+    \\
     \vspace{1ex}
     $
     \begin{cases}
-        K_{cw}T_{wew}-K_{cw}T_{zew}+0.25K_{cw}T_{zew}-0.25K_{cw}T_{p}=Q_{g}\\
-        0.25K_{cw}T_{wew}-0.25K_{cw}T_{p}-K_{cp}T_{p}+K_{cp}T_{zew}=0
+        T_{wew}=\frac{Q_{g}+K_{cw}T_{zew}+T_{p} 0,25 K_{cw}}{1,25K_{cw}}\\
+        T_{p}=\frac{0,25Q_{g}+0,25T_{zew}K_{cw}+1,25T_{zew}K_{cw}}{1,25-0,0625K_{cw}+1,25K_{cp}}
     \end{cases}
     $
+    \\
     \vspace{1ex}
     $
-        \begin{cases}
-            K_{cw}T_{wew}+0.25K_{cw}T_{wew}-0.25K_{cw}T{p}=Q_{g}+K_{cw}T_{zew}\\
-            0.25K_{cw}T_{wew}-0.25K_{cw}T_{p}-K_{cp}T_{p}=-0.25K_{cp}T_{zew}
-        \end{cases}
+    \begin{cases}
+        T_{wew}=\frac{Q_{g}+K_{cw}T_{zew}+0,25T_{p}K_{cw}}{1,25K_{cw}}\\
+        T_{p}=\frac{0,25Q_{g}+1,50T_{zew}K_{cw}}{1,25-0,0625K_{cw}+1,25K_{cp}}
+    \end{cases}
     $
+    \\
     \vspace{1ex}
     $
-        \begin{cases}
-            T_{wew}(K_{cw}+0.25K_{cw})-T_{p}(0.25K_{cw})=Q_{g}+K_{cw}T_{zew}\\
-            T_{wew}(0.25K_{cw})-T_{p}(0.25K_{cw}-K_{cp})=-0.25K_{cp}T_{zew}
-        \end{cases}
+    \begin{cases}
+        T_{wew}=\frac{Q_{g}+K_{cw}T_{zew}+\frac{0,25Q_{g}+1,50T_{zew}K_{cw}}{1,25-0,0625K_{cw}+1,25K_{cp}} 0,25 K_{cw}}{1,25K_{cw}}\\
+        T_{p}=\frac{0,25Q_{g}+1,50T_{zew}K_{cw}}{1,25-0,0625K_{cw}+1,25K_{cp}}
+    \end{cases}
     $
-    \vspace{1ex}\\
-    $
-    \begin{bmatrix}
-        (K_{cw}+0.25K_{cw})& -(0.25K_{cw})            \\[0.3em]
-        0.25K_{cw} & (0.25K_{cw}-K_{cp})            \\[0.3em]
-    \end{bmatrix}
-    $
+    \\
     \vspace{1ex}
+    $
+    \begin{cases}
+        T_{wew}=\frac{1000+23,53\cdot(-20)+\left[\frac{0,25\cdot1000+1,50\cdot(-20)\cdot 23,53}{1,25-0,0625\cdot23,53+1,25\cdot1,96}\right] \cdot(0,25 \cdot23,53)}{1,25\cdot23,53}\approx\\
+        T_{p}=\frac{0,25\cdot1000+1,50\cdot(-20)\cdot23,53}{1,25-0,0625\cdot 23,53+1,25\cdot1,96}\approx
+    \end{cases}
+    $
 \end{center}
 
 \end{document}
