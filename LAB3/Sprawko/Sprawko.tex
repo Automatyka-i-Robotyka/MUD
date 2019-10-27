@@ -1,0 +1,65 @@
+%Sprawozdanie z Fiz3.1 Jan Bronicki
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{polski}
+\title{Sprawozdanie 1}
+
+\author{Jan Bronicki 249011\\
+Marcin Gruchała 248982\\}
+\date{}
+\begin{document}
+\maketitle
+\begin{center}
+    $
+    \begin{cases}
+        0=Q_{g} -K_{cw} (T_{wew} - T_{zew})-K_{cwp} (T_{wew} -T_{p})\\
+        0=K_{cwp}(T_{wew}-T_{p})-K_{cp}(T_{p}-T_{zew})
+    \end{cases}
+    $
+    \vspace{1ex}
+    $
+    ,gdzie \ K_{cwp}=\alpha\cdot K_{cw},\ \alpha=0.25
+    $
+    \vspace{1ex}
+    $
+    \begin{cases}
+        K_{cw}T_{wew}-K_{cw}T_{zew}+0.25K_{cw}T_{zew}-0.25K_{cw}T_{p}=Q_{g}\\
+        0.25K_{cw}T_{wew}-0.25K_{cw}T_{p}-K_{cp}T_{p}+K_{cp}T_{zew}=0
+    \end{cases}
+    $
+    \vspace{1ex}
+    $
+        \begin{cases}
+            K_{cw}T_{wew}+0.25K_{cw}T_{wew}-0.25K_{cw}T{p}=Q_{g}+K_{cw}T_{zew}\\
+            0.25K_{cw}T_{wew}-0.25K_{cw}T_{p}-K_{cp}T_{p}=-0.25K_{cp}T_{zew}
+        \end{cases}
+    $
+    \vspace{1ex}
+    $
+        \begin{cases}
+            T_{wew}(K_{cw}+0.25K_{cw})-T_{p}(0.25K_{cw})=Q_{g}+K_{cw}T_{zew}\\
+            T_{wew}(0.25K_{cw})-T_{p}(0.25K_{cw}-K_{cp})=-0.25K_{cp}T_{zew}
+        \end{cases}
+    $
+    \vspace{1ex}\\
+    $
+    \begin{bmatrix}
+        (K_{cw}+0.25K_{cw})& -(0.25K_{cw})            \\[0.3em]
+        0.25K_{cw} & (0.25K_{cw}-K_{cp})            \\[0.3em]
+    \end{bmatrix}
+    $
+    \vspace{1ex}
+\end{center}
+
+\end{document}
