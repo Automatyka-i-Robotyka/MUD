@@ -1,0 +1,32 @@
+close all;
+clear all;
+
+Q=1000;
+Twew=20;
+Tzew=-20;
+Tp=10;
+alpha=0.25;
+
+T=[(Twew-Tzew)+alpha*(Twew-Tp),0;alpha*(Twew-Tp),(Tzew-Tp)];
+Ck=[Q;0]
+
+K=inv(T)*Ck;
+Kcw=K(1);
+Kcwp=alpha*K(1);
+Kcp=K(2);
+%%%%%%%%%%%%%%%%%%%%%%%%
+%K=[(Kcw+Kcwp),-(Kcwp);(Kcwp),-(Kcwp+Kcp)]
+%Ct=[(Q+Kcw*Tzew);-(Tzew*Kcp)]
+%T=inv(K)*Ct
+Q=1:1:2000
+for i=1:1:length(Q)
+    Ct=[(Q(i)+Kcw*Tzew);-(Tzew*Kcp)];
+    K=[(Kcw+Kcwp),-(Kcwp);(Kcwp),-(Kcwp+Kcp)];
+    T=inv(K)*Ct;
+    Twew(i)=T(1,1);
+    Tp(i)=T(2,1);
+end
+subplot(2,2,1);
+plot(Q,Twew.)
+xlabel('Q[W]');
+ylabel('Twew[C]');
