@@ -1,7 +1,7 @@
-%Sprawozdanie z Fiz3.1 Jan Bronicki
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{ragged2e}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{array}
 \usepackage{wrapfig}
@@ -10,10 +10,10 @@
 \usepackage{amsmath}
 \usepackage{wrapfig}
 \usepackage{mathtools}
-\usepackage{gensymb}
 \usepackage[table]{xcolor}
 \usepackage{multirow}
 \usepackage{polski}
+\usepackage{rotating}
 \title{Sprawozdanie 1}
 
 \author{Jan Bronicki 249011\\
@@ -21,8 +21,289 @@ Marcin Gruchała 248982\\}
 \date{}
 \begin{document}
 \maketitle
+
+\section{Cel ćwiczenia.}
+Stworzenie charakterystyki statycznej dla pomieszczenia z grzejnikiem.
+\section{Wstęp.}
+Opisujemy model domu z grzejnikiem. Poniższy rysunek przedstawia model.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{dom.png}
+    \label{fig:my_label}
+\end{figure}
+%Zamienic kropki na przecinki
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$\\
+T_{zew} - \text{temperatura\ na\ zewnątrz\ pomieszczenia}\\
+T_{wew} - \text{temperatura\ wewnątrz\ pomieszczenia} \\
+T_{p} - \text{temperatura\ na\ poddaszu}\\
+Q_g - \text{grzejnik}\\
+K_{cw} - \text{współczynnik\ strat\ ciepła\ przez\ ściany} \\
+K_{cwp} - \text{współczynnik\ strat\ ciepła\ przez\ sufit} \\
+K_{cp} - \text{współczynnik\ strat\ ciepła\ przez\ dach}\\
+$
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Wyprowadzenie wzorów oraz macierzy
 \begin{center}
+    $
+    \begin{cases}
+        0=Q_{g} -K_{cw} (T_{wew} - T_{zew})-K_{cwp} (T_{wew} -T_{p})\\
+        0=K_{cwp}(T_{wew}-T_{p})-K_{cp}(T_{p}-T_{zew})
+    \end{cases}
+    $
     \vspace{1ex}
+    $
+    ,gdzie \ K_{cwp}=\alpha\cdot K_{cw}.\ \alpha=0,25
+    $
+    \vspace{1ex}
+    $
+    \begin{cases}
+        K_{cw}T_{wew}-K_{cw}T_{zew}+0,25K_{cw}T_{zew}-0,25K_{cw}T_{p}=Q_{g}\\
+        0,25K_{cw}T_{wew}-0,25K_{cw}T_{p}-K_{cp}T_{p}+K_{cp}T_{zew}=0
+    \end{cases}
+    $
+    \vspace{1ex}
+    $
+        \begin{cases}
+            K_{cw}T_{wew}+0,25K_{cw}T_{wew}-0,25K_{cw}T{p}=Q_{g}+K_{cw}T_{zew}\\
+            0,25K_{cw}T_{wew}-0,25K_{cw}T_{p}-K_{cp}T_{p}=-0,25K_{cp}T_{zew}
+        \end{cases}
+    $
+    \vspace{1ex}
+    $
+        \begin{cases}
+            T_{wew}(K_{cw}+0,25K_{cw})-T_{p}(0,25K_{cw})=Q_{g}+K_{cw}T_{zew}\\
+            T_{wew}(0,25K_{cw})-T_{p}(0,25K_{cw}-K_{cp})=-0,25K_{cp}T_{zew}
+        \end{cases}
+    $
+    \vspace{1ex}\\
+    $
+    \begin{bmatrix}
+        (K_{cw}+0,25K_{cw})& -(0,25K_{cw})            \\[0.3em]
+        0,25K_{cw} & (0,25K_{cw}-K_{cp})            \\[0.3em]
+    \end{bmatrix}
+    \begin{bmatrix}
+        T_{wew}\\
+        T_{p}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Q_{q}+K_{cw}T_{zew}\\
+        -K_{cp}T_{zew}
+    \end{bmatrix}
+    $
+    \vspace{1ex}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\begin{flushleft}
+\section{Rozwiązanie układów rwónań ze względu na $K_{cp}. K_{cwp}. K_{cw}$ \\oraz $T_{wew}. T_{p}$(tradycyjnie).}
+\end{flushleft}
+$$
+ \begin{cases}
+        0=Q_{g} -K_{cw} (T_{wew} - T_{zew})-K_{cwp} (T_{wew} -T_{p})\\
+        0=K_{cwp}(T_{wew}-T_{p})-K_{cp}(T_{p}-T_{zew})
+\end{cases}
+$$
+
+Ze względu na $K_{cp}. K_{cwp}. K_{cw}$:
+
+Ze względu na  $T_{wew}. T_{p}$:
+
+\begin{flushleft}
+\section{Rozwiązanie układów rwónań ze względu na $K_{cp}. K_{cwp}. K_{cw}$ \\oraz $T_{wew}. T_{p}$(macierzowo).}
+\end{flushleft}
+
+Ze względu na $K_{cp}. K_{cwp}. K_{cw}$:
+$$
+\begin{bmatrix}
+        0 & 1,25T_{wew}-0,25T_{p}-T_{zew}            \\[0.3em]
+        T_{p}-T_{zew} & -0,25(T_{wew}-T_{p})            \\[0.3em]
+    \end{bmatrix}
+    \begin{bmatrix}
+        K_{cp}\\
+        K_{cw}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Q_{q}\\
+        0
+    \end{bmatrix}
+$$
+
+$$
+W=
+\begin{bmatrix}
+        0 & 1,25T_{wew}-0,25T_{p}-T_{zew}            \\[0.3em]
+        T_{p}-T_{zew} & -0,25(T_{wew}-T_{p})            \\[0.3em]
+    \end{bmatrix}
+$$
+$$
+K=
+\begin{bmatrix}
+        K_{cp}\\
+        K_{cw}
+    \end{bmatrix}
+$$
+
+$$
+Y=\begin{bmatrix}
+        Q_{q}\\
+        0
+    \end{bmatrix}
+$$
+
+$$
+WK=Y
+$$
+
+$$
+K=W^{-1}Y=
+\begin{bmatrix}
+        1,960784313725490\\
+        23,529411764705880
+\end{bmatrix}\approx 
+\begin{bmatrix}
+        1,96 \\
+        23,53
+\end{bmatrix}
+$$
+
+\begin{flushleft}
+
+Ze względu na  $T_{wew}. T_{p}$:
+
+\end{flushleft}
+$$
+\begin{bmatrix}
+        (K_{cw}+0,25K_{cw})& -(0,25K_{cw})            \\[0.3em]
+        0,25K_{cw} & (0,25K_{cw}-K_{cp})            \\[0.3em]
+    \end{bmatrix}
+    \begin{bmatrix}
+        T_{wew}\\
+        T_{p}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Q_{q}+K_{cw}T_{zew}\\
+        -K_{cp}T_{zew}
+    \end{bmatrix}
+$$
+
+$$
+O=\begin{bmatrix}
+        (K_{cw}+0,25K_{cw})& -(0,25K_{cw})            \\[0.3em]
+        0,25K_{cw} & (0,25K_{cw}-K_{cp})            \\[0.3em]
+    \end{bmatrix}
+$$
+
+$$
+T=\begin{bmatrix}
+        T_{wew}\\
+        T_{p}
+    \end{bmatrix}
+$$
+
+$$
+P=\begin{bmatrix}
+        Q_{q}+K_{cw}T_{zew}\\
+        -K_{cp}T_{zew}
+    \end{bmatrix}
+$$
+
+$$
+OT=P
+$$
+
+$$
+T=O^{-1}P=
+\begin{bmatrix}
+       20 \\
+       10
+\end{bmatrix}
+$$
+
+Macierze obliczyliśmy w matlabie.
+
+\section{Wykresy.}
+Wykresy wygenerowaliśmy w programie Matlab.
+
+\begin{figure}
+    \centering
+    \begin{turn}{270}
+    \includegraphics[width=0.6\textwidth]{Dom_wykresy.png}
+    \end{turn}
+    \label{fig:my_label}
+\end{figure}
+
+\section{Wnioski.}
+
+---------------------------------------------------
+%Dla K
+\begin{center}
+    $Q_{g}=1000W$ \\
+    $T_{zew}=-20^{\circ}C$\\
+    $T_{wew}=20^{\circ}C$\\
+    $T_{p}=10^{\circ}C$\\
+    $\alpha=0,25$\\
+    $K_{cwp}=\alpha K_{cw} \implies K_{cwp}=0,25K_{cw}$\\
+    \vspace{1ex}
+    $
+    \begin{cases}
+        0=Q_{g} -K_{cw} (T_{wew} - T_{zew})-K_{cwp} (T_{wew} -T_{p})\\
+        0=K_{cwp}(T_{wew}-T_{p})-K_{cp}(T_{p}-T_{zew})
+    \end{cases}
+    $
+    \vspace{1ex}
+    $
+    \begin{cases}
+        K_{cw}T_{wew}-K_{cw}T_{zew}+0,25K_{cw}T_{zew}-0,25K_{cw}T_{p}=Q_{g}\\
+        0,25K_{cw}T_{wew}-0,25K_{cw}T_{p}-K_{cp}T_{p}+K_{cp}T_{zew}=0
+    \end{cases}
+    $
+    \vspace{1ex}
+    $
+    \begin{cases}
+        K_{cw}(1,25T_{wew}-0,25T_{p}-T_{zew})=Q_{q}\\
+        K_{cp}(T_{p}-T_{zew})-0,25K_{cw}(T_{wew}-T_{p})=0
+    \end{cases}
+    $
+    \vspace{1ex}
+    \\
+    $
+    K_{cp}=\frac{0,25K_{cw}(T_{wew}-T_{p})}{T_{p}-T_{zew}}
+    $
+    \\
+    \vspace{1ex}
+    $
+    K_{cw}=\frac{Q_{g}}{0,75T_{wew}-T_{zew}-0,25T_{p}}
+    $
+    \\
+    \vspace{1ex}
+    $
+    K_{cw}=\frac{1000}{25-2,5+20}\approx 23,53
+    $
+    \\
+    \vspace{1ex}
+    $
+    K_{cp}=\frac{0,25 \cdot 23,53(20-10)}{10-(-20)}\approx1,96
+    $
+    \\
+    \vspace{1ex}
+    $
+    K_{cwp}=0,25K_{cw}\approx 5,98
+    $
+
+\vspace{1ex}
     $
     \begin{cases}
         0=Q_{g} -K_{cw} (T_{wew} - T_{zew})-K_{cwp} (T_{wew} -T_{p})\\
@@ -54,5 +335,10 @@ Marcin Gruchała 248982\\}
     \end{cases}
     $
 \end{center}
+
+
+
+
+---------------------------------------------------
 
 \end{document}
