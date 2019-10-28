@@ -31,12 +31,12 @@ Tp(i)=T(2,1);
 end
 %wykres 1
 subplot(221);
-plot(Qg,Twew,'m');
+plot(Qg,Twew,'m'),grid on;
 xlabel('Qg[w]');
 ylabel('Twew[\circC]');
 %wykres 2
 subplot(222);
-plot(Qg,Tp,'b');
+plot(Qg,Tp,'b'),grid on;
 xlabel('Qg[w]');
 ylabel('Tp[\circC]');
 %obliczenia do wykresó 3 i 4
@@ -53,12 +53,12 @@ Tp(i)=T(2,1);
 end
 %wykres 3
 subplot(223);
-plot(Tzew,Twew,'r');
+plot(Tzew,Twew,'r'),grid on;
 xlabel('Tzew[\circC]');
 ylabel('Twew[\circC]');
 %wykres 4
 subplot(224);
-plot(Tzew,Tp, 'g');
+plot(Tzew,Tp, 'g'),grid on;
 xlabel('Tzew[\circC]');
 ylabel('Tp[\circC]');
 
