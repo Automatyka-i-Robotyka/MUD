@@ -94,7 +94,6 @@ grid on;
 
 
 
-%aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 %x00000000000000000000000000000000000000000000000000000000000000000000000
 subplot(3,1,3);
 A1=-2;
