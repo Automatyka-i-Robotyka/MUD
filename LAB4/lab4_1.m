@@ -1,4 +1,4 @@
-clear all;
+clear;
 close all;
 
 %x1=-0.5
