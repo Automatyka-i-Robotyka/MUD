@@ -1,0 +1,91 @@
+clear;
+close all;
+
+
+%x_sz=Ae^alpha*t+x0;
+%AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+subplot(2,2,1);
+x_sz=0:0.001:2;
+t=0:0.001:2;
+a=-2;
+xw=-0.5;
+
+A1=2;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(l1*t(i))+xw;
+end
+plot(t,x_sz,'-');
+hold on;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A1=5;
+a=-2;
+xw=-0.5;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(l1*t(i))+xw;
+end
+plot(t,x_sz,'-');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A1=-3;
+a=-2;
+xw=-0.5;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(l1*t(i))+xw;
+end
+plot(t,x_sz,'m-');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A1=0;
+a=-2;
+xw=-0.5;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(a*t(i))+xw;
+end
+plot(t,x_sz,'k-');
+title('x_{sz}=Ae^{\alpha t}+x_{0}');
+legend('A=2','A=5','A=-3','A=0');
+xlabel('t');
+ylabel('x');
+grid on;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+subplot(2,2,2);
+x_sz=0:0.001:2;
+t=0:0.001:2;
+A1=2;
+a=-2;
+xw=-0.5;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(a*t(i))+xw;
+end
+plot(t,x_sz,'-');
+title('x_sz=Aexp(a*t)+x0');
+xlabel('t');
+ylabel('x');
+grid on;
+hold on;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A1=2;
+l1=-2;
+xw=-0.5;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(l1*t(i))+xw;
+end
+plot(t,x_sz,'-');
+title('x_sz=Aexp(a*t)+x0, A=10');
+xlabel('t');
+ylabel('x');
+grid on;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A1=2;
+l1=-2;
+xw=-0.5;
+for i=1:1:(length(t));
+    x_sz(i)=A1*exp(l1*t(i))+xw;
+end
+plot(t,x_sz,'m-');
+title('x_{sz}=Ae^{\alpha t}+x_{0}');
+legend();
+xlabel('t');
+ylabel('x');
+grid on;
