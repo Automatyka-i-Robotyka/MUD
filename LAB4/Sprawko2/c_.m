@@ -2,48 +2,52 @@ clear;
 close all;
 
 
-%x_sz=Ae^alpha*t+x0;
+%x_sz=A1*exp(a1*t)+A2*exp(a2*t)+x0;
 x_sz=0:0.001:2;
+A1=1;
+A2=1;
+a1=-2;
+a2=-2;
 t=0:0.001:2;
-a=-2;
-xw=-0.5;
+xw=0;
+%Dla uproszczenie odczytywania wykresu xw=0
 
 
 
 
 
 
+%11111111111111111111111111111111111111111111111111
 
 %A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1
 subplot(2,2,1);
 A1=2;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'m-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A1=5;
+A1=-1;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'b-');
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A1=-3;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'r-');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A1=0;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=xw;
 end
 plot(t,x_sz,'k--');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-title('\alpha=-2, x_{0}=-0.5');
-legend('A=2','A=5','A=-3','A=0, x_{0}=-0.5');
+title('A_{2}=-1,\alpha_{1}=-2,\alpha_{2}=-2, x_{0}=0');
+legend('A_{1}=2','A_{1}=-1','A_{1}=-3','x_{0}=0');
 xlabel('t');
 ylabel('x');
 grid on;
@@ -51,49 +55,43 @@ grid on;
 
 
 
-
-
-
 %a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a
-
 subplot(2,2,2);
+A1=2;
 
-A1=-2;
-xw=-3;
-
-a=1;
+a1=1;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'m-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a=0.5;
+a1=0.5;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'b-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a=-2;
+a1=-2;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'r-');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a=0;
+a1=0;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'k-');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A1=0;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=xw;
 end
 plot(t,x_sz,'k--');
-title('A=-2, x_{0}=-3');
-legend({'\alpha = 1','\alpha = 0.5','\alpha = -1','\alpha=0','x_{0}=-3'},'Location','southwest');
+title('A_{1}=2,A_{2}=1,\alpha_{2}=-2, x_{0}=0');
+legend({'\alpha_{1} = 1','\alpha_{1} = 0.5','\alpha_{1} = -1','\alpha_{1}=0','x_{0}=0'},'Location','northwest');
 xlabel('t');
 ylabel('x');
 grid on;
@@ -103,45 +101,39 @@ grid on;
 
 
 
-
-
-
-
-
-
-
-
+%22222222222222222222222222222222222222222222222222
 
 %A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2
-subplot(2,2,1);
+subplot(2,2,3);
+A1=1;
+a1=-1;
 A2=2;
 for i=1:1:(length(t))
-    x_sz(i)=A2*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'m-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A2=5;
+A2=-1;
 for i=1:1:(length(t))
-    x_sz(i)=A2*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'b-');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A2=-3;
 for i=1:1:(length(t))
-    x_sz(i)=A2*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'r-');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A2=0;
 for i=1:1:(length(t))
-    x_sz(i)=A2*exp(a*t(i))+xw;
+    x_sz(i)=xw;
 end
 plot(t,x_sz,'k--');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-title('\alpha=-2, x_{0}=-0.5');
-legend('A2=2','A2=5','A2=-3','A2=0, x_{0}=-0.5');
+title('A_{1}=1,\alpha_{1}=-1,\alpha_{2}=-2, x_{0}=0');
+legend('A_{2}=2','A_{2}=-1','A_{2}=-3','x_{0}=0');
 xlabel('t');
 ylabel('x');
 grid on;
@@ -154,46 +146,46 @@ grid on;
 
 
 
-%a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a
+%a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2
 
-subplot(2,2,3);
-
-A1=-2;
-xw=-3;
-
-a=1;
+subplot(2,2,4);
+a1=-5;
+A1=2;
+A2=-3;
+a2=0.6;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'m-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a=0.5;
+a2=0.5;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'b-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a=-2;
+a2=-20;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'r-');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a=0;
+a2=0;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'k-');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A1=0;
+A2=0;
 for i=1:1:(length(t))
-    x_sz(i)=A1*exp(a*t(i))+xw;
+    x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'k--');
-title('A=-2, x_{0}=-3');
-legend({'\alpha = 1','\alpha = 0.5','\alpha = -1','\alpha=0','x_{0}=-3'},'Location','southwest');
+title('A_{1}=2,A_{2}=-3,\alpha_{1}=-5, x_{0}=0');
+legend({'\alpha_{2} = 0.6','\alpha_{2} = 0.5','\alpha_{2} = -1','\alpha_{2}=-20','x_{0}=0'},'Location','southwest');
 xlabel('t');
 ylabel('x');
 grid on;
