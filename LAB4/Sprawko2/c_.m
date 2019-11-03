@@ -151,7 +151,7 @@ grid on;
 subplot(2,2,4);
 a1=-5;
 A1=2;
-A2=-3;
+A2=3;
 a2=0.6;
 for i=1:1:(length(t))
     x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
@@ -166,7 +166,7 @@ end
 plot(t,x_sz,'b-');
 hold on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-a2=-20;
+a2=-1;
 for i=1:1:(length(t))
     x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
@@ -184,8 +184,8 @@ for i=1:1:(length(t))
     x_sz(i)=A1*exp(a1*t(i))+A2*exp(a2*t(i))+xw;
 end
 plot(t,x_sz,'k--');
-title('A_{1}=2,A_{2}=-3,\alpha_{1}=-5, x_{0}=0');
-legend({'\alpha_{2} = 0.6','\alpha_{2} = 0.5','\alpha_{2} = -1','\alpha_{2}=-20','x_{0}=0'},'Location','southwest');
+title('A_{1}=2,A_{2}=3,\alpha_{1}=-5, x_{0}=0');
+legend({'\alpha_{2} = 0.6','\alpha_{2} = 0.5','\alpha_{2} = -1','\alpha_{2}=-20','x_{0}=0'},'Location','northwest');
 xlabel('t');
 ylabel('x');
 grid on;
