@@ -15,11 +15,6 @@ x_sz=1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
-
-
-
 %AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 subplot(2,2,1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,11 +53,6 @@ ylabel('x');
 title('a=-1,\omega=10,\phi=0,x_{0}=1');
 legend('A=0','A=5','A=-5','x_{0}=1');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 
 
 %aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -106,10 +96,6 @@ legend({'a=0','a=0.2','a=-0.9','x_{0}=1'},'Location','southeast');
 
 
 
-
-
-
-
 %wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 subplot(2,2,3);
 a=-0.5;
@@ -148,11 +134,6 @@ ylabel('x');
 title('A=1,a=-0.5,\phi=0,x_{0}=1');
 legend('\omega=0','\omega=5.5','\omega=-5','x_{0}=1');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 
 
 %phiphiphiphiphiphiphiphiphiphiphiphiphiphiphiphi

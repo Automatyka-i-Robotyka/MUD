@@ -14,11 +14,6 @@ t=0:0.001:2;
 xw=0;
 %Dla uproszczenie odczytywania wykresu xw=0
 
-
-
-
-
-
 %11111111111111111111111111111111111111111111111111
 
 %A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1
@@ -141,12 +136,6 @@ xlabel('t');
 ylabel('x');
 grid on;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
 
 
 %a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2
