@@ -9,6 +9,7 @@
 \usepackage{tabularx}
 \usepackage{amsmath}
 \usepackage{wrapfig}
+\usepackage{gensymb}
 \usepackage{mathtools}
 \usepackage[table]{xcolor}
 \usepackage{multirow}
@@ -94,10 +95,18 @@ $$
 $$
 x(t)=\frac{5}{6}e^{-2t}+\frac{10}{6}e^{t}-\frac{1}{2}-\text{rozwiązanie szczególne}
 $$
+\newpage
+Wykres:
+\begin{figure}[h!]
+    \centering
+     \begin{turn}{270}
+    \includegraphics[width=1.3\textwidth]{rozwiazanie_analityczne_wykres.png}
+    \end{turn}
+    \label{fig:my_label}
+\end{figure}
 
 
-
-
+\newpage
 \section{Badanie wpływu parametrów.}
 \subsection{$A,\alpha,x_0$}
 $$
@@ -112,7 +121,7 @@ $$
 \begin{flushleft}
 Wnisoki:\\
 Parametr $A$ nie ma wpływu na stabilność układu. Wpływa na to czy wkyres maleje czy rośnie w zależności od tego czy jest ujemny czy dodatni oraz gdzie spotyka się z osią pionową.\\
-Parametr $\alpha$ wpływa na stabilnośc układu. Dla $\alpha > 0$ układ jest nie stabilny a dla $\alpha < 0 $ układ jest niestabilny\\
+Parametr $\alpha$ wpływa na stabilnośc układu. Dla $\alpha > 0$ układ jest nie stabilny a dla $\alpha < 0 $ układ jest niestabilny.\\
 Parametr $x_0$ nie wpływa na stabilość układu. Decydyuje o wartości na jakiej układ się ustabilizuje. Przesuwa wykres w górę lub w dół zależnie od wartości parametru.
 \end{flushleft}
 \subsection{$\alpha,\omega,\varphi$}
@@ -163,7 +172,26 @@ dodaje, jeśli znaki parametró $A_i$ są różne to najważniejszy jest paramet
 
 
 \section{Wnioski.}
+Jak pokazały powyższe przykłady zanając jeden z parametrów funkcji możemy w mniejszym lub większym stopniu oszcacować jego wygląd. Można to przełożyć na ocenianie opisów modeli i w szybki sposób stwierdzić czy model się ustabilizuje czy nie, ponieważ niektóre parametry nie mają wpływu na to czy funkcja zanika do jakiejś wartości czy nie. 
 \section{Załączniki.}
-
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{kod1.png}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{a_1_m.png}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{a_2_m.png}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{a_3_m.png}
+    \label{fig:my_label}
+\end{figure}
 \end{document}
