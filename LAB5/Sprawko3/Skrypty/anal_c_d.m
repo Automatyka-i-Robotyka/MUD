@@ -2,19 +2,17 @@
 %x=A*exp((a_0)/(a_1))+((b*u)/(a_0))
 clear;
 close all;
-
+%Dla warunkow poczatkowych bez pochodnych
 a0=1;
 a1=1;
 b=2;
 %u odpowiada za obliczenie xw oraz
 %wartosc jaka obierze skok
 u=1;
-%przesuniedie poczatku robienia wykresu
 t0=1;
 %wart pocz
 x0=0;
 
-%111111111111111111111111111111111111111111111111111
 [t]=sim('model_1');
 %biale to pomocna zmienna do ladnego rysowania wykresu
 biale=ones(size(t));
@@ -56,6 +54,7 @@ legend('x_{w}','x_{s}','location','southeast');
 
 
 t0=0
+%Wart pocz
 x0=2
 [t]=sim('model_1');
 xs=ones(size(t));
@@ -73,3 +72,6 @@ grid on;
 plot(t,x,'b');
 grid on;
 legend('x_{s}','x_{w}');
+
+
+
