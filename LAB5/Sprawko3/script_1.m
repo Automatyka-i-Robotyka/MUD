@@ -3,8 +3,8 @@
 clear;
 close all;
 
-a_0=1;
-a_1=1;
+a0=1;
+a1=1;
 b=2;
 %u odpowiada za obliczenie xw oraz
 %wartosc jaka obierze skok
@@ -16,17 +16,60 @@ x0=0;
 
 %111111111111111111111111111111111111111111111111111
 [t]=sim('model_1');
-subplot(2,1,1);
-plot(t,x);
+%biale to pomocna zmienna do ladnego rysowania wykresu
+biale=ones(size(t));
+biale=2.5.*biale;
+
+xs=ones(size(t));
+xs=x.*xs;
+xs=xs-2;
+
+xw=ones(size(t));
+xw=2.*xw;
+
+
+figure;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+subplot(1,2,1);
+plot(t,x,'b');
+grid on;
 hold on;
-title('x(0)=0');
+plot(t,biale,'w');
+grid on;
+legend('x');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+subplot(1,2,2);
+plot(t,xw,'m');
+hold on;
 grid on;
 
+plot(t,xs,'r');
+grid on;
+hold on;
 
-t0=0;
-x0=2;
+plot(t,biale,'w');
+hold on;
+grid on;
+legend('x_{w}','x_{s}','location','southeast');
+
+
+
+t0=0
+x0=2
 [t]=sim('model_1');
-subplot(2,1,2);
-plot(t,x);
-title('x(0)=2');
+xs=ones(size(t));
+xs=0.*xs;
+figure;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+subplot(1,2,1);
+plot(t,x,'b');
 grid on;
+legend('x');
+subplot(1,2,2);
+plot(t,xs,'m');
+hold on;
+grid on;
+plot(t,x,'b');
+grid on;
+legend('x_{s}','x_{w}');
