@@ -1,6 +1,6 @@
 close;
 clear all;
-
+%Wiem ze jest napisane na pale ale jakos tak wyszlo xD
 %x(t)=A*exp(a*t)*cos(wt+phi)+x_0
 %12345
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

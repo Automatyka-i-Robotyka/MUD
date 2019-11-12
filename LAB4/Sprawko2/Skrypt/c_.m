@@ -1,6 +1,6 @@
 clear;
 close all;
-
+%Wiem ze jest napisane na pale ale jakos tak wyszlo xD
 
 %x_sz=A1*exp(a1*t)+A2*exp(a2*t)+x0;
 x_sz=0:0.001:2;

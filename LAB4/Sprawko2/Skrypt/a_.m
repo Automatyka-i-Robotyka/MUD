@@ -1,7 +1,6 @@
 clear;
 close all;
-
-
+%Wiem ze jest napisane na pale ale jakos tak wyszlo xD
 %x_sz=Ae^alpha*t+x0;
 %AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 subplot(3,1,1);
