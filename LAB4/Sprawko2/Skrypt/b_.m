@@ -2,6 +2,7 @@ close;
 clear all;
 
 %x(t)=A*exp(a*t)*cos(wt+phi)+x_0
+%12345
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A=1;
 a=-1;
@@ -12,6 +13,7 @@ phi=0;
 x_0=1;
 x_sz=1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 subplot(2,2,1);
