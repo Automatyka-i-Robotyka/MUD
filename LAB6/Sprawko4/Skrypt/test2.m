@@ -1,7 +1,7 @@
-[x,y] = meshgrid(0:0.25:11,0:0.25:11)
-
-u = sin(x).*y;
-v = sin(x).*y;
-
-figure
-quiver(x,y,u,v)
+x = linspace(-5,5);
+y = 5-(x+2).^2;
+[maxy,idx] = max(y);
+figure(1)
+plot(x, y, x(idx),y(idx),'pr')
+legend('y(x)', sprintf('Maximum y = %0.3f',maxy))
+axis([xlim    min(y) max(y)+1])
