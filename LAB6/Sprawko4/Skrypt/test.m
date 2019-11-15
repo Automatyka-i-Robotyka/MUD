@@ -4,19 +4,25 @@
 
 u=1;
 ksi=0.1;
-w=2;
+w=5;
 b=1;
 
 [t]=sim('testt');
 
 
-[t2,x2] = meshgrid(size(t),size(x))
+subplot(2,2,1)
 
-u = sin(t2).*x2;
-v = sin(t2).*x2;
 
-subplot(2,2,1);
-quiver(t2,x2,u,v);
+
+lambda1 = -ksi*w+w*sqrt(ksi*ksi-1)
+lambda2 = -ksi*w-w*sqrt(ksi*ksi-1)
+plot(real(lambda1),imag(lambda1),'ro');
+hold on;
+plot(real(lambda2),imag(lambda2),'ro');
+line([0 0],[-(2*imag(lambda1)) (2*imag(lambda1))],'Color','k');
+line([-(2*real(lambda1)) 2*real(lambda1)],[0 0],'Color','k');
+grid on;
+
 
 
 subplot(2,2,2);
