@@ -95,6 +95,9 @@ $$
 $$
 x(t)=\frac{5}{6}e^{-2t}+\frac{10}{6}e^{t}-\frac{1}{2}-\text{rozwiązanie szczególne}
 $$
+
+
+
 \newpage
 Wykres:
 \begin{figure}[h!]
@@ -104,6 +107,7 @@ Wykres:
     \end{turn}
     \label{fig:my_label}
 \end{figure}
+
 
 
 \newpage
@@ -121,58 +125,74 @@ $$
 \begin{flushleft}
 Wnisoki:\\
 Parametr $A$ nie ma wpływu na stabilność układu. Wpływa na to czy wkyres maleje czy rośnie w zależności od tego czy jest ujemny czy dodatni oraz gdzie spotyka się z osią pionową.\\
-Parametr $\alpha$ wpływa na stabilnośc układu. Dla $\alpha > 0$ układ jest nie stabilny a dla $\alpha < 0 $ układ jest niestabilny.\\
+Parametr $\alpha$ wpływa na stabilnośc układu. Dla $\alpha > 0$ układ jest nie stabilny a dla $\alpha < 0 $ układ jest stabilny.\\
 Parametr $x_0$ nie wpływa na stabilość układu. Decydyuje o wartości na jakiej układ się ustabilizuje. Przesuwa wykres w górę lub w dół zależnie od wartości parametru.
 \end{flushleft}
 \subsection{$\alpha,\omega,\varphi$}
 $$
 x(t)=Ae^{\alpha t}cos(\omega t + \phi)+x_o
 $$
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.2\textwidth]{b_wykresy.jpg}
+\begin{figure}[h!]
+    \begin{flushleft}
+    
+    \includegraphics[scale=0.52]{b_wykresy_wersja2.png}
+    \end{flushleft}
     \label{fig:my_label}
+    
 \end{figure}
 \begin{flushleft}
+\begin{figure}[h!]
 Wnioski:\\
 Parametr $\alpha$ wpływa znacząco na zanikanie funkcji. Dla $\alpha < 0$ funkcja zanika do zera (układ się stabilizuje). Dla $\alpha > 0$ funkcja będzie uciekać od zera(układ jest nie stabilny).\\
 Parametr $\omega$ wpływa na częstotliwośc oscylacji funkcji. Dla dużych $\omega$ oscylacje funkcji będą się pojawiać częściej funkcja będzie bardzije zagęszczona. \\
 Parametr $\phi$ wpływa na przesunięcie fazowe funkcji. \\
+\end{figure}
 \end{flushleft}
+
+
+
+\newpage
 \subsection{$\alpha_i,A_i$}
 a)
 $$
 x(t)=A_1e^{\alpha_1 t}+A_2e^{\alpha_2 t} + x_o
 $$
-Wnioski:\\
-Sumowanie parametr $\alpha_i$ wpływa znacząco na to czy funkcja zanika. Dla dwuch parametrów $\alpha_i$ o ujemnych znakach funkcja zanika, lecz gdzy tylko jeden z parametrów $\alpha_i$ jest dodani to funkcja już nie zanika. \\
-Sumowanie parametru $A_i$ jest bardzo intuicyjne. Gdy dwie skłądowe mają taki sam znak ich wpływ na kształt funkcji jest zsumowany. W rzypadku gdzie parametry $A_i$ mają różne znaki najbardziej znaczący jest ten któy ma większą wartość bezwzglęną.  \\
-\newpage
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{c_graphs.png}
+    \includegraphics[width=1.15\textwidth]{c_graphs_wersja2.png}
     \label{fig:my_label}
 \end{figure}
+\begin{figure}[h!]
+\begin{flushleft}
+Wnioski:\\
+Sumowanie parametr $\alpha_i$ wpływa znacząco na to czy funkcja zanika. Dla dwuch parametrów $\alpha_i$ o ujemnych znakach funkcja zanika, lecz gdzy tylko jeden z parametrów $\alpha_i$ jest dodatni to funkcja już nie zanika. \\
+Sumowanie parametru $A_i$ jest bardzo intuicyjne. Gdy dwie składowe mają taki sam znak ich wpływ na kształt funkcji jest zsumowany. W przypadku gdzie parametry $A_i$ mają różne znaki najbardziej znaczący jest ten który ma większą wartość bezwzglęną.  \\
+\end{flushleft}
+\end{figure}
+
+
+
+\newpage
 b)
 $$
 x(t)=A_1e^{\alpha_1 t}+A_2e^{\alpha_2 t}cos(\omega t+\varphi)
 $$
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{d_graphs.png}
+    \includegraphics[width=1\textwidth]{d_graphs_wersja2.png}
     \label{fig:my_label}
 \end{figure}
 \begin{flushleft}
 Wnioski:\\
-Sumowanie parametr $\alpha_i$ ma duży wpływ na to czy funkcja zanika. Dla dwuch parametrów $\alpha_i < 0 $ funkcja zanika, w sytuacji gdzie tylko jeden z parametrów $\alpha_i < 0$ a drugi parametr $\alpha_i > 0$ to funkcja nie zanika. \\
-Sumowanie parametr $A_i$ w tej funkcji działa analogicznie do funkcji w podpunkcjie 3.3a. Jeśli znaki parametrów $A_i$ są takie same ich ewekt się 
-dodaje, jeśli znaki parametró $A_i$ są różne to najważniejszy jest parametr z większą wartością bezwzględną.\\
+Sumowanie parametru $\alpha_i$ ma duży wpływ na to czy funkcja zanika. Dla dwuch parametrów $\alpha_i < 0 $ funkcja zanika, w sytuacji gdzie tylko jeden z parametrów $\alpha_i < 0$ a drugi parametr $\alpha_i > 0$ to funkcja nie zanika. \\
+Sumowanie parametru $A_i$ w tej funkcji działa analogicznie do funkcji w podpunkcjie 3.3a. Jeśli znaki parametrów $A_i$ są takie same ich efekt się 
+dodaje, jeśli znaki parametrów $A_i$ są różne to najważniejszy jest parametr z większą wartością bezwzględną.\\
 \end{flushleft}
 
 
-
+\newpage
 \section{Wnioski.}
-Jak pokazały powyższe przykłady zanając jeden z parametrów funkcji możemy w mniejszym lub większym stopniu oszcacować jego wygląd. Można to przełożyć na ocenianie opisów modeli i w szybki sposób stwierdzić czy model się ustabilizuje czy nie, ponieważ niektóre parametry nie mają wpływu na to czy funkcja zanika do jakiejś wartości czy nie. 
+Jak pokazują powyższe przykłady znając jeden z parametrów funkcji możliwe jest w mniejszym lub większym stopniu oszcacowanie jej wyglądu. Może być to przełożone na ocenianie opisów modeli i szybki sposób stwierdzania czy model się ustabilizuje czy nie, ponieważ niektóre parametry w przeciwieństwie do innych mają wpływ na to czy funkcja zanika do jakiejś wartości (stabilizuje się) czy nie. 
 \section{Załączniki.}
 \begin{figure}[h!]
     \centering
