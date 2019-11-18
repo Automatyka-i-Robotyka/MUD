@@ -4,7 +4,7 @@ close all;
 %x''+2*ksi*w*x'+w^2 * x=b*u
 
 u=0;
-ksi=0.5;
+ksi=-1.5    ;
 w=1.5;
 b=1;
 % Rozne wartosci ksi dla porownania
@@ -47,4 +47,4 @@ for i=1:1:(length(ksi_all))
     line([0,0],[0,(2*imag(lambda2)-6)],'Color','k');
 end
 xlabel('Re');
-ylabel('Im')
+ylabel('Im');

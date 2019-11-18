@@ -41,3 +41,9 @@ LAB6/slprj/sim/varcache/lab6_1_sim/varInfo.mat
 LAB6/Sprawko4/Skrypt/testt.slx.autosave
 LAB6/Sprawko4/Skrypt/testt.slx.autosave
 LAB6/Sprawko4/Skrypt/slprj/sim/varcache/main_schemat/tmwinternal/simulink_cache.xml
+*.autosave
+*.aux
+*.fls
+*.log
+*.gz
+*.fdb_latexmk

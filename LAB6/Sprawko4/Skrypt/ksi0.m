@@ -3,7 +3,7 @@ close all;
 %x''+2*ksi*w*x'+w^2 * x=b*u
 
 u=0;
-ksi=0;
+ksi=-1.2;
 w=1.5;
 b=1;
 % Rozne wartosci ksi dla porownania
