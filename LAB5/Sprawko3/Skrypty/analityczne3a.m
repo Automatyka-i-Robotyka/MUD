@@ -1,14 +1,20 @@
 clear all;
 t=0:001:10;
 subplot(121);
-x=0;
+xa=0;
+xs=0;
 for i=1:1:length(t)
-    x(i)=2;
+    xa(i)=2;
+    xs(i)=2;
 end
-plot(t,x),grid on;
+hold on
+plot(t,xa);
+plot(t,xs,'r*');
+grid on;
+title('rozwi¹zanie analityczne i symulacyjne');
 xlabel('t');
 ylabel('x');
-legend('x');
+legend('rozwi¹zanie analityczne','rozwi¹zanie symulacyjne');
 
 subplot(122);
 hold on;
@@ -28,7 +34,7 @@ xw=2;
 for i=1:1:length(t)
     xw(i)=2;
 end
-plot(t,xw,'r--'),grid on;
+plot(t,xw,'r*'),grid on;
 xlabel('t');
 ylabel('x');
 
@@ -42,6 +48,7 @@ w2=-1;
 for i=1:1:length(t)
     w2(i)=-1;
 end
-plot(t,w2,'w'),grid on;
+plot(t,w2,'w'),grid on
+title('rozwi¹zanie analityczne wraz ze sk³adowymi');
 legend('X','Xs','Xw');
 
