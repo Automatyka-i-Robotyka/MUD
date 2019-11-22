@@ -1,43 +1,29 @@
-
 clear;
 close all;
 %chyba jest ok
 g=9.81;
 steptime_1=3;
-
 % Szerokosc zbiornikow 1 i 2
 A1=1;
 A2=1;
-
-
-
 % Wielkosci otworow zbiornnikow przez ktore ma uciekac woda
 Aw1=0.1*A1;
 Aw2=0.2*A2;
-
-
-
-%to sa warunki na stabilnosc
-%h10=1/((Aw1^2)*2*g);
-%h20=(((Aw1)*sqrt(2*g*h10))^2)/((Aw2^2)*2*g);
-
-% Warunki poczatkowe zbiornikow 1 i 2
-h10=0.6;
-h20=2;
-
+% To sa warunki na stabilnosc
+%h10=(fwe1^2)/(2*g*Aw1^2);
+%h20=(fwe1^2)/(2*g*Aw2^2);
 
 % Wartosc dolewanej do ukladu wodu przed step'em
-fwe1=0;
+fwe1=1;
 % wraz ze stepem
 dfew1=1;
 
+% Warunki poczatkowe zbiornikow 1 i 2
+h10=(fwe1^2)/(2*g*Aw1^2);
+h20=(fwe1^2)/(2*g*Aw2^2);
 
-
-
-[t]=sim('test_sch');
-
-% Rysowanko 
-
+[t]=sim('Uklad_wersja_Nieliniowa_Schemat.slx');
+% Rysowanko
 
 % Wykres h1 od czasu
 subplot(2,1,1);
