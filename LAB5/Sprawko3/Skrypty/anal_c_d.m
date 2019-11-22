@@ -1,7 +1,6 @@
 %a_1*x'+a_0*x=b*u
 %x=A*exp((a_0)/(a_1))+((b*u)/(a_0))
-clear;
-close all;
+
 %Dla warunkow poczatkowych bez pochodnych
 a0=1;
 a1=1;
@@ -29,12 +28,19 @@ xw=2.*xw;
 figure;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subplot(1,2,1);
+hold on;
 plot(t,x,'b');
+plot(t,x,'r*');
+
 grid on;
 hold on;
 plot(t,biale,'w');
 grid on;
 legend('x');
+title('rozwi¹zanie analityczne i symulacyjne');
+xlabel('t');
+ylabel('x');
+legend('rozwi¹zanie analityczne','rozwi¹zanie symulacyjne');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subplot(1,2,2);
@@ -46,10 +52,15 @@ plot(t,xs,'r');
 grid on;
 hold on;
 
+plot(t,x,'b');
+
 plot(t,biale,'w');
 hold on;
 grid on;
-legend('x_{w}','x_{s}','location','southeast');
+xlabel('t');
+ylabel('x');
+legend('x_{w}','x_{s}','x','location','southeast');
+title('rozwi¹zanie analityczne wraz ze sk³adowymi');
 
 
 
@@ -62,16 +73,28 @@ xs=0.*xs;
 figure;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subplot(1,2,1);
+hold on;
 plot(t,x,'b');
+plot(t,x,'r--');
 grid on;
-legend('x');
+legend('równanie symulacyjne','równanie analityczne');
+title('rozwi¹zanie analityczne i symulacyjne');
+xlabel('t');
+ylabel('x');
+
+
 subplot(1,2,2);
 plot(t,xs,'m');
 hold on;
 grid on;
 plot(t,x,'b');
+plot(t,x,'r--');
+
 grid on;
-legend('x_{s}','x_{w}');
+legend('x_{s}','x_{w}','x');
+title('rozwi¹zanie analityczne wraz ze sk³adowymi');
+xlabel('t');
+ylabel('x');
 
 
 
