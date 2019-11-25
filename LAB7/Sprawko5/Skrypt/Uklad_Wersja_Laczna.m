@@ -18,7 +18,7 @@ Aw2=0.2*A2;
 %h20=(fwe1^2)/(2*g*Aw2^2);
 
 % Maksymalna wysokosc h
-h_max = 1.25;
+h_max = 5;
 
 %Maksymalny wplyw
 fwe_max = Aw1*sqrt(2*g*h_max);
@@ -59,19 +59,24 @@ dfew1=0.1*fwe_max;
 % xlabel('Czas');
 % ylabel('Wysokosc wody w zbiorniku');
 % legend('h1(t)','h2(t)');
-h10=0
-h20=0
+h10=1;
+h20=1;
 figure;
-wek_color=['b','m','g'];
+wek_color1=['b','m','g'];
+wek_color2=['c','r','k'];
 f=[0,0.5*fwe_max,0.9*fwe_max];
 for i=1:length(f)
     fwe1=f(i);
     [t]=sim('Uklad_wersja_Nieliniowa_Schemat');
-    subplot(3,2,i);
-    plot(t,h1,wek_color(i));
+    subplot(3,1,i);
+    plot(t,h1,wek_color1(i));
     hold on;
     grid on;
-    
+    plot(t,h2,wek_color2(i));
+    title('h1 i h2 od czasu');
+    xlabel('t');
+    ylabel('h');
+    legend('h1','h2');
 end
 
 % CZESC LINIOWA
