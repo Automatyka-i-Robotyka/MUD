@@ -49,3 +49,4 @@ LAB6/Sprawko4/Skrypt/slprj/sim/varcache/main_schemat/tmwinternal/simulink_cache.
 *.fdb_latexmk
 *.mat
 *.xml
+*.rels
