@@ -1,12 +1,21 @@
 clear all;
-%warunki pocz¹tkowe
-g=9,81;
-A1=1;
-A2=1;
-Aw1=1;
+g=9.81;
+A1=4;
+A2=4;
+Aw1=2;
 Aw2=2;
-h1=;
-h2=;
-h_max=2;
-fwe_max=Aw1*sqrt(2*g*hmax);
-fwe=0,8*fwe_max;
+h_max=6;
+a1=Aw1*sqrt((2*g)/h_max);
+a2=Aw2*sqrt((2*g)/h_max);
+fwe_max=Aw1*sqrt(2*g*h_max);
+fwe=0*fwe_max;
+dfwe=0.1*fwe_max;
+h10=fwe/a1;
+h20=fwe/a2;
+[t]=sim('schemat_liniowy');
+hold on;
+plot(t,h1);
+plot(t,h2);
+legend('h1','h2');
+xlabel('t');
+ylabel('h1, h2')
