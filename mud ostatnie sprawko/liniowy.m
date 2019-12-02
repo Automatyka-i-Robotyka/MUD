@@ -18,4 +18,4 @@ plot(t,h1,'b');
 plot(t,h2,'r');
 legend('h1','h2');
 xlabel('t');
-ylabel('h1, h2')
+ylabel('h')
