@@ -1,3 +1,4 @@
+%model liniowy
 clear all;
 g=9.81;
 A1=4;
@@ -8,7 +9,7 @@ h_max=6;
 a1=Aw1*sqrt((2*g)/h_max);
 a2=Aw2*sqrt((2*g)/h_max);
 fwe_max=Aw1*sqrt(2*g*h_max);
-fwe=0.5*fwe_max;
+fwe=0*fwe_max;
 dfwe=0.1*fwe_max;
 h10=fwe/a1;
 h20=fwe/a2;
@@ -19,3 +20,4 @@ plot(t,h2,'r');
 legend('h1','h2');
 xlabel('t');
 ylabel('h')
+title('odpowiedü skokowa dla modelu liniwego, fwe=0');
