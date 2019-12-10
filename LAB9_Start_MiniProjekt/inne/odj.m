@@ -1,7 +1,7 @@
 Tzew = -4; %-ostatnia cyfra indeksu
 Tz = 26; 
-Tp = 18; % 10+3cia cyfra indeksu
-Twew = 24; %pierwsza i ostatnia cyfra indeksu
+Tp = 19; % 10+3cia cyfra indeksu
+Twew = 21; %pierwsza i ostatnia cyfra indeksu
 fp = 1;
 %%%%%%%%%%%%
 cp = 1005; %z tablic
@@ -30,4 +30,5 @@ Twew0 = Twew;
 hold on;
 plot(simout.tout,simout.Twew)
 plot(simout.tout,simout.Tp)
+grid on;
 
