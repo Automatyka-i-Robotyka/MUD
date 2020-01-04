@@ -1,4 +1,5 @@
- clear all; close all;
+clear; 
+close all;
 
 ro_p = 1.2; % kg/m^3
 cp = 1000; % J/(kg*K)
@@ -35,7 +36,7 @@ C = A\B;
 
 K1 = C(1,1);
 Kw = C(2,1); 
-Kp = p*Kw;
+Kp = p*Kw; 
 
 %warunki pocz¹tkowe 
 
