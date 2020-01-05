@@ -48,23 +48,26 @@ War_Twew = T(1,1);
 War_Tp = T(2,1);
 
 %War_Twew = ((cp*ro_p*fpn*Tz+Kw*Tzew)*(K1+Kp)+K1*Kp*Tzew)/((cp*ro_p*fpn+K1+Kw)*(K1+Kp)-K1*K1);
-
+ 
 %War_Tp = (Kp*Tzew*(cp*ro_p*fpn+K1+Kw)+K1*(cp*ro_p*fpn*Tz+Kw*Tzew))/((cp*ro_p*fpn+K1+Kw)*(K1+Kp)-K1*K1);
 
 %cv_w*Twew'=cp*ro_p*fpn*Tz-cp*ro_p*fpn*Twew-K1*Twew+K1*Tp-Kw*Twew+Kw*Tzew;
 %cv_p*Tp'=K1*Twew-K1*Tp-Kp*Tp+Kp*Tzew
 %t'=Dt+E
-D = [-(cp*ro_p*fpn+K1+Kw)/cv_w , K1/cv_w ; K1/cv_p ,-(K1+Kp)/cv_p ];
-E = [ cp*ro_p*fpn/cv_w, Kw/cv_w ; 0 , Kp/cv_p ];
+D = [-(cp*ro_p*fpn+K1+Kw)/cv_w , K1/cv_w      ;
+                 K1/cv_p       ,-(K1+Kp)/cv_p ];
 
-[t]=sim('Domek.slx');
+E = [ cp*ro_p*fpn/cv_w, Kw/cv_w ;
+             0        , Kp/cv_p ];
+
+[t]=sim('Domek_.slx');
 
 plot(Tpt);
 hold on;
 plot(Twewt, 'r');
 
 figure(2);
-[t2]=sim('state_s.slx');
+[t2]=sim('state_sp.slx');
 plot(T_p);
 hold on;
 plot(T_wew);

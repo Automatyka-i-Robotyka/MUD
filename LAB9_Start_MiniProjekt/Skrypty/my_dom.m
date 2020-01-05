@@ -2,7 +2,7 @@ clear;
 close all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE WARTOSCI
-T_zewN = 24;  % 'C
+T_zewN = -1;  % 'C
 T_zN = 24;    % 'C
 T_pN = 19;    % 'C
 T_wewN = 21;  % 'C
@@ -40,7 +40,7 @@ K_p=p*K_w;         % W/K
 steptime=1000;
 d_T_z = 0;
 d_f_p = 0;
-d_T_zew = 3;
+d_T_zew = 0;
 sim('my_dom_model');
 
 % Test prostej kreski
@@ -56,45 +56,76 @@ legend('T_{wew}','T_{p}')
 
 % Badanie modelu skokami
 % Tz
+d_T_z = 0;
+d_f_p = 0;
+d_T_zew = 5;
+sim('my_dom_model');
+
+figure
+plot(t,T_wew_sym1)
+hold on;
+plot(t,T_p_sym1)
+grid on;
+title('Skok T_{zew}')
+xlabel('Czas [s]')
+ylabel("Temperatura [^{\circ}C]")
+legend('T_{wew}','T_{p}')
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% STATE SPACE STATE SPACE STATE SPACE STATE SPACE STATE SPACE 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wyzerowanie 
+d_T_z = 0;
+d_f_p = 0;
+d_T_zew = 0;
 
 
 
+% x'= Ax + Bu
+% y = Cx + Du 
+A =[ -(a+K_1+K_w)/C_vw,    K_1/C_vw    ;
+          K_1/C_vp    , -(K_1+K_p)/C_vp];
+            
+B =[ c_p*ro_p*f_pN/C_vw, K_w/C_vw ;
+             0        , K_p/C_vp ];
+C=[1,0;
+   0,1];
 
+D=[0,0;
+   0,0];
+% Warunki poczatkowe dla syulacji w state space
+State_Space_Init=[T_wewN; T_pN];
+sim('my_dom_state_space');
 
+figure
+plot(T_wew_state_space)
+hold on;
+plot(T_p_state_space)
+grid on;
+title('Test prostej kreski, STATE SPACE')
+xlabel('Czas [s]')
+ylabel("Temperatura [^{\circ}C]")
+legend('T_{wew}','T_{p}')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Badanie ze skokiem STATE SPACE
+% Skoki
+steptime=1000;
+d_T_z = 0;
+d_T_zew = 5;
 
+sim('my_dom_state_space');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+figure
+plot(T_wew_state_space)
+hold on;
+plot(T_p_state_space)
+grid on;
+title("T_{zew} , STATE SPACE")
+xlabel('Czas [s]')
+ylabel("Temperatura [^{\circ}C]")
+legend('T_{wew}','T_{p}')
 
 
 
