@@ -2,7 +2,7 @@ clear;
 close all
 
 
-Tzew = -4; %-ostatnia cyfra indeksu
+Tzew = 26; %-ostatnia cyfra indeksu
 Tz = 26; 
 Tp = 18; % 10+3cia cyfra indeksu
 Twew = 24; %pierwsza i ostatnia cyfra indeksu

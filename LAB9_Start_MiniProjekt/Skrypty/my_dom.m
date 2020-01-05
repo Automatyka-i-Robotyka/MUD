@@ -1,12 +1,8 @@
 clear;
 close all
-% Jan Bronicki 249011
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE WARTOSCI
-T_zewN = 23;  % 'C
+T_zewN = 24;  % 'C
 T_zN = 24;    % 'C
 T_pN = 19;    % 'C
 T_wewN = 21;  % 'C
@@ -27,8 +23,8 @@ a=c_p*ro_p*f_pN;
 % Proporcja K
 p=0.25;
 % Obliczanie wspolczynnikow K
-A = [T_wewN-T_pN, T_wewN-T_zewN; 
-     T_wewN-T_pN, -p*(T_pN-T_zewN)];
+A = [(T_wewN-T_pN), (T_wewN-T_zewN); 
+     (T_wewN-T_pN), (-p*(T_pN-T_zewN))];
 B = [a*(T_zN-T_wewN); 0];
 K_matrix = inv(A)*B;
 % Wspolczynniki przenikalnosci cieplnej K
@@ -42,9 +38,9 @@ K_p=p*K_w;         % W/K
 % Wartosci skoków w step'ach
 % Aby otrzymac prosta kreske skoki =0
 steptime=1000;
-d_T_z = 1;
+d_T_z = 0;
 d_f_p = 0;
-d_T_zew = 0;
+d_T_zew = 3;
 sim('my_dom_model');
 
 % Test prostej kreski
