@@ -114,7 +114,7 @@ legend('T_{wew}','T_{p}')
 steptime=1000;
 d_T_z = 0;
 d_T_zew = 5;
-%%
+
 sim('my_dom_state_space');
 
 figure
