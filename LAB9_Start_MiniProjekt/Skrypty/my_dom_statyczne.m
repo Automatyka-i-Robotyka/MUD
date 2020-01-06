@@ -32,6 +32,9 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % charakterystyki statyczne %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,8 +55,8 @@ title('slope T_z=0,00001')
 legend('Twew')
 xlim([0,stop_time]);
 grid on;
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("T_{wew} [^{\circ}C]")
 
 subplot(3,2,2)
 plot(t,-T_p_sym2);
@@ -61,6 +64,11 @@ title('slope T_z=0,00001')
 xlim([0,stop_time]);
 legend('Tp');
 grid on;
+xlabel("Czas [s]")
+ylabel("T_{p} [^{\circ}C]")
+
+
+
 
 %%%%%
 % 2 %
@@ -79,6 +87,8 @@ title('slope f_p=0,00001')
 legend('Twew')
 xlim([0,stop_time]);
 grid on;
+xlabel("Czas [s]")
+ylabel("T_{wew} [^{\circ}C]")
 
 subplot(3,2,4)
 plot(t,-T_p_sym2);
@@ -86,6 +96,12 @@ title('slope f_p=0,00001')
 xlim([0,stop_time]);
 legend('Tp');
 grid on;
+xlabel("Czas [s]")
+ylabel("T_{p} [^{\circ}C]")
+
+
+
+
 
 %%%%%
 % 3 %
@@ -105,6 +121,10 @@ title('slope T_{zew}=0,00001')
 legend('Twew');
 xlim([0,stop_time]);
 grid on;
+xlabel("Czas [s]")
+ylabel("T_{wew} [^{\circ}C]")
+
+
 
 subplot(3,2,6)
 plot(t,-T_p_sym2);
@@ -112,3 +132,5 @@ title('slope T_{zew}=0,00001')
 xlim([0,stop_time]);
 legend('Tp');
 grid on;
+xlabel("Czas [s]")
+ylabel("T_{p} [^{\circ}C]")
