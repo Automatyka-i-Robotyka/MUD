@@ -32,32 +32,42 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-M = [C_vw*C_vp,(C_vw*(K_1+K_p)+C_vp*(c_p * ro_p*f_pN +f_pN +K_w)),(c_p * ro_p*f_pN +K_1 +K_w)*(f_pN + K_p)-f_pN^2];
-L11 = [C_vp*(c_p*ro_p*f_pN), (c_p*ro_p*f_pN)*(f_pN + K_p)];
-L12 = [K_w*C_vp, K_w*(K_1+K_p)+f_pN*K_p];
-L21 = [K_1*(c_p*ro_p*f_pN)];
-L22 = [C_vw*K_p, (c_p * ro_p*f_pN +K_1 +K_w)*K_p+K_w*K_1];
-
-steptime=1000;
+steptime=0;
 d_T_z = 0;
+d_f_p = 0;
 d_T_zew = 0;
+% szybka metoda na transmitancje bez m?ki liczenia na zmiennych
+% %transmitancje
 
-sim('my_dom_trans')
-figure(1);
+% Macierze uzyte do State Space'a
+% x'= Ax + Bu
+% y = Cx + Du 
+A =[ -(a+K_1+K_w)/C_vw,    K_1/C_vw    ;
+          K_1/C_vp    , -(K_1+K_p)/C_vp];
+            
+B =[ c_p*ro_p*f_pN/C_vw, K_w/C_vw ;
+             0        , K_p/C_vp ];
+C=[1,0;
+   0,1];
+
+D=[0,0;
+   0,0];
+
+% Funkcja ktora zamienia state space na transmitancje
+[L1,M1]=ss2tf(A,B,C,D,1);
+[L2,M2]=ss2tf(A,B,C,D,2);
+
+
+
+sim("my_dom_trans");
+
+plot(T_wew_trans)
 hold on;
+plot(T_p_trans)
+legend('T_{wew}','T_{p}')
 grid on;
-plot(T_wew_trans);   
-xlabel('Czas [s]');
-ylabel('T_{wew}');
 
 
-figure(2);
-hold on;
-grid on;
-plot(T_p_trans);   
-xlabel('Czas [s]');
-ylabel('T_{p}');
 
 
 
