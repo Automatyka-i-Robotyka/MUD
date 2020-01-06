@@ -32,45 +32,59 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Sprawdzenie "Prostej kreski"
-% Warunki poczatkowe
 
-% Wartosci skoków w step'ach
-% Aby otrzymac prosta kreske skoki =0
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% STATE SPACE STATE SPACE STATE SPACE STATE SPACE STATE SPACE 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wyzerowanie 
 steptime=1000;
 d_T_z = 0;
 d_f_p = 0;
 d_T_zew = 0;
-sim('my_dom_model');
 
-% Test prostej kreski
-plot(t,T_wew_sym1)
+
+
+% x'= Ax + Bu
+% y = Cx + Du 
+A =[ -(a+K_1+K_w)/C_vw,    K_1/C_vw    ;
+          K_1/C_vp    , -(K_1+K_p)/C_vp];
+            
+B =[ c_p*ro_p*f_pN/C_vw, K_w/C_vw ;
+             0        , K_p/C_vp ];
+C=[1,0;
+   0,1];
+
+D=[0,0;
+   0,0];
+% Warunki poczatkowe dla syulacji w state space
+State_Space_Init=[T_wewN; T_pN];
+sim('my_dom_state_space');
+
+figure
+plot(T_wew_state_space)
 hold on;
-plot(t,T_p_sym1)
+plot(T_p_state_space)
 grid on;
-title('Test prostej kreski')
+title('Test prostej kreski, STATE SPACE')
 xlabel('Czas [s]')
 ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Badanie modelu skokami
-% Tz
+% Badanie ze skokiem STATE SPACE
+% Skoki
+steptime=1000;
 d_T_z = 0;
-d_f_p = 0;
 d_T_zew = 5;
-sim('my_dom_model');
+
+sim('my_dom_state_space');
 
 figure
-plot(t,T_wew_sym1)
+plot(T_wew_state_space)
 hold on;
-plot(t,T_p_sym1)
+plot(T_p_state_space)
 grid on;
-title('Skok T_{zew}')
+title("T_{zew}")
 xlabel('Czas [s]')
-ylabel("Temperatura [^{\circ}C]")
+ylabel('Temperatura [^{\circ}C]')
 legend('T_{wew}','T_{p}')
-
-
-
-

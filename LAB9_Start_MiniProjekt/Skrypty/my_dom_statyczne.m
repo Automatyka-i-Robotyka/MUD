@@ -1,5 +1,39 @@
-clear;
-close all
+close all;
+clear all;
+% ogrzewanie w klimatyzowanym domu z poddaszem [6b] (pojemnosci Cvw, Cvp)
+
+% zmienne wejsciowe dla modelu nieliniowego: T_zewo, Tkz, fko
+% zmienne wejsciowe dla modelu liniowego: T_zweo, Tkz
+% zmienne wyjsciowe: T_wewN, T_pN
+
+% Skrypt bazowy zawierajacy wszystkie metody symulacji. Enjoy!
+
+% clear;
+% close all;
+% 
+% % zmienne dynamiki
+% Vw = 720;                % objetosc pokoju     
+% Vp = 215;            % objetosc poddasza
+% c_p = 1000;                % cieplo wlasciwe powietrza
+% ro_p = 1.2;                % gestosc powietrza
+% Cvw = c_p * ro_p * Vw;      % spakowane wartosci w jedna zmienna
+% Cvp = c_p * ro_p * Vp;      % -||-
+% 
+% % wartosci nominalne
+% T_zewN = -7;                    % Temp. zewnetrzna   
+% T_wewN = 21;                     % Temp. wewnetrzna (pokoju)
+% T_pN = 18;                       % Temp. poddasza
+% T_zN = 22;                      % Temp. powietrza nawiewanego
+% f_pN=1;
+% % wspolczynniki
+% Z=[(T_wewN-T_pN),(T_wewN-T_zewN),0;(T_wewN-T_pN),0,-(T_pN-T_zewN);0,1,-2];   
+%                                       
+% Y =[c_p*ro_p*f_pN*(T_zN-T_wewN);0;0];                 
+% X = inv(Z)*Y;              % Postac macierzowa poczatkowego ukladu rownan                       
+% K_1=X(1);
+% K_w=X(2);
+% K_p=X(3);
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE WARTOSCI
 T_zewN = -1;  % 'C
@@ -20,7 +54,7 @@ C_vp = c_p*ro_p*V_p;   % J/k
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Do zmniejszenia zapisu
 a=c_p*ro_p*f_pN;
-% Proporcja K
+% Pro_porcja K
 p=0.25;
 % Obliczanie wspolczynnikow K
 A = [(T_wewN-T_pN), (T_wewN-T_zewN); 
@@ -35,102 +69,135 @@ K_p=p*K_w;         % W/K
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% charakterystyki statyczne %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 1 %
-%%%%%
-slope_T_z = 0.00001;
-slope_f_p = 0;
-slope_T_zew = 0;
 
-stop_time = 3600;
-set_param('my_dom_model_statyczne', 'StopTime', 'stop_time')
-sim('my_dom_model_statyczne');
-figure(2)
-subplot(3,2,1);
+
+
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+a = c_p*ro_p*f_pN;
+M=1/(K_1+K_p);
+
+
+figure();
+subplot(321);
+T_zew1=-9:0.1:25;
+T_wewp = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)./(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M) ;
+T_po = (K_1*T_wewp+K_p*T_zew1)*M;
+plot(T_zew1,T_wewp);
+xlabel('T_{zew}');
+ylabel('T_{wew}');
+title('Charakterystyka statyczna T_{wew} od T_{zew}');
 hold on;
-plot(t,-T_wew_sym2);
-title('slope T_z=0,00001')
-legend('Twew')
-xlim([0,stop_time]);
+plot(T_zewN, T_wewN, 'r.','Markersize',25);
 grid on;
-xlabel("Czas [s]")
-ylabel("T_{wew} [^{\circ}C]")
-
-subplot(3,2,2)
-plot(t,-T_p_sym2);
-title('slope T_z=0,00001')
-xlim([0,stop_time]);
-legend('Tp');
-grid on;
-xlabel("Czas [s]")
-ylabel("T_{p} [^{\circ}C]")
+legend("T_{wew}")
 
 
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+a = c_p*ro_p*f_pN;
+M=1/(K_1+K_p);
 
-
-%%%%%
-% 2 %
-%%%%%
-slope_T_z = 0;
-slope_f_p = 0.00001;
-slope_T_zew = 0;
-
-stop_time = 3600;
-set_param('my_dom_model_statyczne', 'StopTime', 'stop_time')
-sim('my_dom_model_statyczne');
-subplot(3,2,3);
+subplot(323);
+T_z1=0.1:0.1:25;
+T_wewp = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)./(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M) ;
+T_po = (K_1*T_wewp+K_p*T_zew1)*M;
+plot(T_z1,T_wewp);
+xlabel('T_{z}');
+ylabel('T_{wew}');
 hold on;
-plot(t,-T_wew_sym2);
-title('slope f_p=0,00001')
-legend('Twew')
-xlim([0,stop_time]);
+plot(T_zN, T_wewN, 'r.','Markersize',25);
+title('Charakterystyka statyczna T_{wew} od T_{z}');
 grid on;
-xlabel("Czas [s]")
-ylabel("T_{wew} [^{\circ}C]")
+legend("T_{wew}")
 
-subplot(3,2,4)
-plot(t,-T_p_sym2);
-title('slope f_p=0,00001')
-xlim([0,stop_time]);
-legend('Tp');
-grid on;
-xlabel("Czas [s]")
-ylabel("T_{p} [^{\circ}C]")
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+a = c_p*ro_p*f_pN;
+M=1/(K_1+K_p);
 
-
-
-
-
-%%%%%
-% 3 %
-%%%%%
-slope_T_z = 0;
-slope_f_p = 0;
-slope_T_zew = 0.00001;
-
-stop_time = 3600;
-set_param('my_dom_model_statyczne', 'StopTime', 'stop_time')
-sim('my_dom_model_statyczne');
-
-subplot(3,2,5);
+subplot(325);
+f_p1=0.1:0.1:25;
+T_wewp = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)./(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M) ;
+T_po = (K_1*T_wewp+K_p*T_zew1)*M;
+plot(f_p1,T_wewp);
+xlabel('f_pN');
+ylabel('T_{wew}');
 hold on;
-plot(t,-T_wew_sym2);
-title('slope T_{zew}=0,00001')
-legend('Twew');
-xlim([0,stop_time]);
+plot(f_pN, T_wewN, 'r.','Markersize',25);
+title('Charakterystyka statyczna T_{wew} od f_{p}');
 grid on;
-xlabel("Czas [s]")
-ylabel("T_{wew} [^{\circ}C]")
+legend("T_{wew}")
+
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+a = c_p*ro_p*f_pN;
+M=1/(K_1+K_p);
 
 
-
-subplot(3,2,6)
-plot(t,-T_p_sym2);
-title('slope T_{zew}=0,00001')
-xlim([0,stop_time]);
-legend('Tp');
+subplot(322);
+T_zew1=-10:0.1:25;
+T_wewp = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)./(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M) ;
+T_po = (K_1*T_wewp+K_p*T_zew1)*M;
+plot(T_zew1,T_po);
+xlabel('T_{zew}');
+ylabel('T_{p}');
+title('Charakterystyka statyczna T_{p} od T_{zew}');
+hold on;
+plot(T_zewN, T_pN, 'r.','Markersize',25);
 grid on;
-xlabel("Czas [s]")
-ylabel("T_{p} [^{\circ}C]")
+legend("T_{p}")
+
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+a = c_p*ro_p*f_pN;
+M=1/(K_1+K_p);
+subplot(324);
+T_z1=0.1:0.1:25;
+T_wewp = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)./(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M) ;
+T_po = (K_1*T_wewp+K_p*T_zew1)*M;
+plot(T_z1,T_po);
+xlabel('T_{z}');
+ylabel('T_{p}');
+hold on;
+plot(T_zN, T_pN, 'r.','Markersize',25);
+title('Charakterystyka statyczna T_{p} od T_{z}');
+grid on;
+legend("T_{p}")
+
+subplot(326);
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+a = c_p*ro_p*f_pN;
+M=1/(K_1+K_p);
+f_p1=0.1:0.1:25;
+T_wewp = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)./(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M) ;
+T_po = (K_1*T_wewp+K_p*T_zew1)*M;
+plot(f_p1,T_po);
+xlabel('f_pN');
+ylabel('T_{p}');
+hold on;
+plot(f_pN, T_pN, 'r.','Markersize',25);
+title('Charakterystyka statyczna T_{p} od f_{p}');
+grid on;
+legend("T_{p}")
+
+
