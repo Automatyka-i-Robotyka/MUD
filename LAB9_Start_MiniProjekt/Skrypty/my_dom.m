@@ -1,3 +1,4 @@
+%%
 clear;
 close all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,14 +54,14 @@ xlabel('Czas [s]')
 ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%
+% NOMINALNIE
 % Badanie modelu skokami
 % T_zN
 d_T_z = 0;
 d_f_p = 0;
 d_T_zew = 5;
 sim('my_dom_model');
-
 figure
 plot(t,T_wew_sym1)
 hold on;
@@ -72,5 +73,19 @@ ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')
 
 
+%%
+
+
+
+
+Ok czyli 3 razy robimy badania:
+1.Nominalne
+2.zmienione TZew i Tz
+3. Zmienione TZew Tz i fp
+
+Za kazdym razem robimy 3 skoki:
+dTzew= (jakies np:) 5
+dTz=np:5
+dfp=np: fpN*0.5
 
 
