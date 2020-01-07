@@ -7,8 +7,8 @@ T_zN = 24;    % 'C
 T_pN = 19;    % 'C
 T_wewN = 21;  % 'C
 f_pN = 1;     % m^3/s
-c_p = 1000; % J/(kg*K)
-ro_p = 1.2; % kg/m^3
+c_p = 1000;   % J/(kg*K)
+ro_p = 1.2;   % kg/m^3
 dl = 20;   % m
 szer = 10; % m
 h_w = 5;   % m
@@ -60,17 +60,17 @@ D=[0,0;
 [L2,M2]=ss2tf(A,B,C,D,2);
 
 
-
+figure
 sim('my_dom_trans');
-
 plot(T_wew_trans)
 hold on;
 plot(T_p_trans)
-ylabel('Temperatura [   ^{\circ}C]')
-xlabel('Czas [s]')
-title('Test prostej kreski, TRANSMITANCJA');
 grid on;
+xlabel('Czas [s]');
+ylabel('Temperatura [^{\circ}C]');
 legend('T_{wew}','T_{p}')
+title('Test prostej kreski, TRANSMITANCJA');
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
 % OGOLNE POTWIERDZENIE MODELI

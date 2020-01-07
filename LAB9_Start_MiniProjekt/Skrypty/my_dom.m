@@ -63,55 +63,58 @@ legend('T_{wew}','T_{p}')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
 % OGOLNE POTWIERDZENIE MODELI
+
+
+% DLA STATE SPACE
+% x'= Ax + Bu
+% y = Cx + Du 
+A =[ -(a+K_1+K_w)/C_vw,    K_1/C_vw    ;
+          K_1/C_vp    , -(K_1+K_p)/C_vp];
+            
+B =[ c_p*ro_p*f_pN/C_vw, K_w/C_vw ;
+             0        , K_p/C_vp ];
+C=[1,0;
+   0,1];
+
+D=[0,0;
+   0,0];
+% Warunki poczatkowe dla syulacji w state space
+% wartosci poczatkowe2
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+M=1/(K_1+K_p);
+T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
+T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
+
+State_Space_Init=[T_wew0; T_p0];
+
+% Funkcja ktora zamienia state space na transmitancje
+[L1,M1]=ss2tf(A,B,C,D,1);
+[L2,M2]=ss2tf(A,B,C,D,2);
 % Badanie modelu skokami
+%-----------------------------------
 % T_zN
-d_T_z = 5;
-d_f_p = 0;
-d_T_zew = 0;
-sim('my_dom_model');
+d_T_z = 5; %5
+d_T_zew = 0; %2
+d_f_p = 0; %0.2
 
-subplot(3,1,1)
-plot(t,T_wew_sym1)
+sim('my_dom_model')
+subplot(3,2,1)
+plot(t,T_wew_sym1,'-')
 hold on;
-plot(t,T_p_sym1)
-grid on;
-title('POTWIERDZENIE MODELI, Skok T_{z}')
-xlabel('Czas [s]')
-ylabel("Temperatura [^{\circ}C]")
-legend('T_{wew}','T_{p}')
-
-subplot(3,1,2)
-% T_zewN
-d_T_z = 0;
-d_f_p = 0;
-d_T_zew = 5;
-sim('my_dom_model');
-plot(t,T_wew_sym1)
+sim('my_dom_trans')
+plot(T_wew_trans,'*')
 hold on;
-plot(t,T_p_sym1)
+sim('my_dom_state_space')
+plot(T_wew_state_space,'o')
+hold on
+title('Twew od skoku Tz=2')
+legend('NL','State Space','Transmitancja')
 grid on;
-xlabel('Czas [s]')
-ylabel("Temperatura [^{\circ}C]")
-legend('T_{wew}','T_{p}')
-title('Skok T_{zewN}')
-
-subplot(3,1,3)
-% f_p
-d_T_z = 0;
-d_f_p = f_pN*0.5;
-d_T_zew = 0;
-sim('my_dom_model');
-plot(t,T_wew_sym1)
-hold on;
-plot(t,T_p_sym1)
-grid on;
-xlabel('Czas [s]')
-ylabel("Temperatura [^{\circ}C]")
-legend('T_{wew}','T_{p}')
-title('Skok f_{pN}')
-
-
-
+%-----------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE NOMINALNE NOMINALNE NOMINALNE NOMINALNE NOMINALNE
 % dla nominalnego pozostaja te same
@@ -365,4 +368,6 @@ legend('Nominalne','\Delta T_{zew} i \Delta T_{z}','\Delta T_{zew}, \Delta T_{z}
 % dTz=np:5
 % dfp=np: fpN*0.5
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
