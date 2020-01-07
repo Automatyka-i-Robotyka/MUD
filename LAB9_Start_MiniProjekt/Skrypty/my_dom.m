@@ -53,7 +53,7 @@ plot(t,T_wew_sym1)
 hold on;
 plot(t,T_p_sym1)
 grid on;
-title('Test prostej kreski')
+title('Test prostej kreski, NL');
 xlabel('Czas [s]')
 ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')

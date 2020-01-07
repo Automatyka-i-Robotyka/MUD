@@ -1,39 +1,5 @@
 close all;
 clear all;
-% ogrzewanie w klimatyzowanym domu z poddaszem [6b] (pojemnosci Cvw, Cvp)
-
-% zmienne wejsciowe dla modelu nieliniowego: T_zewo, Tkz, fko
-% zmienne wejsciowe dla modelu liniowego: T_zweo, Tkz
-% zmienne wyjsciowe: T_wewN, T_pN
-
-% Skrypt bazowy zawierajacy wszystkie metody symulacji. Enjoy!
-
-% clear;
-% close all;
-% 
-% % zmienne dynamiki
-% Vw = 720;                % objetosc pokoju     
-% Vp = 215;            % objetosc poddasza
-% c_p = 1000;                % cieplo wlasciwe powietrza
-% ro_p = 1.2;                % gestosc powietrza
-% Cvw = c_p * ro_p * Vw;      % spakowane wartosci w jedna zmienna
-% Cvp = c_p * ro_p * Vp;      % -||-
-% 
-% % wartosci nominalne
-% T_zewN = -7;                    % Temp. zewnetrzna   
-% T_wewN = 21;                     % Temp. wewnetrzna (pokoju)
-% T_pN = 18;                       % Temp. poddasza
-% T_zN = 22;                      % Temp. powietrza nawiewanego
-% f_pN=1;
-% % wspolczynniki
-% Z=[(T_wewN-T_pN),(T_wewN-T_zewN),0;(T_wewN-T_pN),0,-(T_pN-T_zewN);0,1,-2];   
-%                                       
-% Y =[c_p*ro_p*f_pN*(T_zN-T_wewN);0;0];                 
-% X = inv(Z)*Y;              % Postac macierzowa poczatkowego ukladu rownan                       
-% K_1=X(1);
-% K_w=X(2);
-% K_p=X(3);
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE WARTOSCI
 T_zewN = -1;  % 'C

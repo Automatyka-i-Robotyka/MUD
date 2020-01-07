@@ -32,6 +32,8 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+T_wew1=T_wewN;
+T_p1=T_pN;
 steptime=1000;
 d_T_z = 0;
 d_f_p = 0;
@@ -59,16 +61,16 @@ D=[0,0;
 
 
 
-sim("my_dom_trans");
+sim('my_dom_trans');
 
 plot(T_wew_trans)
 hold on;
 plot(T_p_trans)
-legend('T_{wew}','T_{p}')
+ylabel('Temperatura [   ^{\circ}C]')
+xlabel('Czas [s]')
+title('Test prostej kreski, TRANSMITANCJA');
 grid on;
-
-
-
+legend('T_{wew}','T_{p}')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
 % OGOLNE POTWIERDZENIE MODELI
