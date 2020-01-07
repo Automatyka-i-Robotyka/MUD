@@ -32,7 +32,9 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+T_z1 = T_zN;
+T_zew1= T_zewN;
+f_p1 = f_pN;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % STATE SPACE STATE SPACE STATE SPACE STATE SPACE STATE SPACE 
@@ -58,7 +60,17 @@ C=[1,0;
 D=[0,0;
    0,0];
 % Warunki poczatkowe dla syulacji w state space
-State_Space_Init=[T_wewN; T_pN];
+% wartosci poczatkowe2
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+M=1/(K_1+K_p);
+T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
+T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
+
+State_Space_Init=[T_wew0; T_p0];
 sim('my_dom_state_space');
 
 figure
@@ -71,20 +83,42 @@ xlabel('Czas [s]')
 ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Badanie ze skokiem STATE SPACE
-% Skoki
-steptime=1000;
-d_T_z = 0;
-d_T_zew = 5;
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+% OGOLNE POTWIERDZENIE MODELI
+% Badanie modelu skokami
+% T_zN
+d_T_z = 5;
+d_f_p = 0;
+d_T_zew = 0;
 sim('my_dom_state_space');
 
-figure
+subplot(2,1,1)
 plot(T_wew_state_space)
 hold on;
 plot(T_p_state_space)
 grid on;
-title("T_{zew}")
+title('POTWIERDZENIE MODELI, Skok T_{z}')
 xlabel('Czas [s]')
-ylabel('Temperatura [^{\circ}C]')
+ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')
+
+subplot(2,1,2)
+% T_zewN
+d_T_z = 0;
+d_f_p = 0;
+d_T_zew = 5;
+sim('my_dom_state_space');
+plot(T_wew_state_space)
+hold on;
+plot(T_p_state_space)
+grid on;
+xlabel('Czas [s]')
+ylabel("Temperatura [^{\circ}C]")
+legend('T_{wew}','T_{p}')
+title('Skok T_{zewN}')
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

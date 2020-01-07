@@ -96,7 +96,7 @@ legend('T_{wew}','T_{p}')
 title('Skok T_{zewN}')
 
 subplot(3,1,3)
-% T_zewN
+% f_p
 d_T_z = 0;
 d_f_p = f_pN*0.5;
 d_T_zew = 0;

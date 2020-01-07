@@ -32,7 +32,7 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-steptime=0;
+steptime=1000;
 d_T_z = 0;
 d_f_p = 0;
 d_T_zew = 0;
@@ -69,8 +69,41 @@ grid on;
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+figure
+% OGOLNE POTWIERDZENIE MODELI
+% Badanie modelu skokami
+% T_zN
+d_T_z = 5;
+d_f_p = 0;
+d_T_zew = 0;
+sim('my_dom_trans');
 
+subplot(2,1,1)
+plot(T_wew_trans)
+hold on;
+plot(T_p_trans)
+grid on;
+title('POTWIERDZENIE MODELI, Skok T_{z}')
+xlabel('Czas [s]')
+ylabel("Temperatura [^{\circ}C]")
+legend('T_{wew}','T_{p}')
 
+subplot(2,1,2)
+% T_zewN
+d_T_z = 0;
+d_f_p = 0;
+d_T_zew = 5;
+sim('my_dom_trans');
+plot(T_wew_trans)
+hold on;
+plot(T_p_trans)
+grid on;
+xlabel('Czas [s]')
+ylabel("Temperatura [^{\circ}C]")
+legend('T_{wew}','T_{p}')
+title('Skok T_{zewN}')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
