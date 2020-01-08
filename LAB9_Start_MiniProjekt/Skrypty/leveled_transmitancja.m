@@ -7,8 +7,8 @@ T_zN = 24;    % 'C
 T_pN = 19;    % 'C
 T_wewN = 21;  % 'C
 f_pN = 1;     % m^3/s
-c_p = 1000; % J/(kg*K)
-ro_p = 1.2; % kg/m^3
+c_p = 1000;   % J/(kg*K)
+ro_p = 1.2;   % kg/m^3
 dl = 20;   % m
 szer = 10; % m
 h_w = 5;   % m
@@ -32,21 +32,16 @@ K_1=K_matrix(1,1); % W/K
 K_w=K_matrix(2,1); % W/K
 K_p=p*K_w;         % W/K
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-T_z1 = T_zN;
-T_zew1= T_zewN;
-f_p1 = f_pN;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% STATE SPACE STATE SPACE STATE SPACE STATE SPACE STATE SPACE 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Wyzerowanie 
+T_wew1=T_wewN;
+T_p1=T_pN;
 steptime=1000;
 d_T_z = 0;
 d_f_p = 0;
 d_T_zew = 0;
+% szybka metoda na transmitancje bez m?ki liczenia na zmiennych
+% %transmitancje
 
-
-
+% Macierze uzyte do State Space'a
 % x'= Ax + Bu
 % y = Cx + Du 
 A =[ -(a+K_1+K_w)/C_vw,    K_1/C_vw    ;
@@ -59,33 +54,24 @@ C=[1,0;
 
 D=[0,0;
    0,0];
-% Warunki poczatkowe dla syulacji w state space
-% wartosci poczatkowe2
-T_zew1 = T_zewN;                                                   
-T_wew1 = T_wewN;                                                   
-T_p1 = T_pN;                                                     
-f_p1 = f_pN;
-T_z1 = T_zN;                                                     
-M=1/(K_1+K_p);
-T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
-T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
 
-State_Space_Init=[T_wew0; T_p0];
+% Funkcja ktora zamienia state space na transmitancje
+[L1,M1]=ss2tf(A,B,C,D,1);
+[L2,M2]=ss2tf(A,B,C,D,2);
+
+
 figure
-subplot(111)
-sim('my_dom_state_space');
-
-
-plot(T_wew_state_space)
+sim('my_dom_trans');
+plot(T_wew_trans-T_wew_trans.Data(1))
 hold on;
-plot(T_p_state_space)
+plot(T_p_trans-T_p_trans.Data(1))
 grid on;
-title('Test prostej kreski, STATE SPACE')
-xlabel('Czas [s]')
-ylabel("Temperatura [{\circ}C]")
+xlabel('Czas [s]');
+ylabel('Temperatura [^{\circ}C]');
 legend('T_{wew}','T_{p}')
+title('Test prostej kreski, TRANSMITANCJA');
+hold on
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,8 +84,8 @@ subplot(2,2,1)
 d_T_z = 5;
 d_T_zew = 0;
 
-sim('my_dom_state_space');
-plot(T_wew_state_space)
+sim('my_dom_trans');
+plot(T_wew_trans-T_wew_trans.Data(1))
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
@@ -107,7 +93,7 @@ grid on
 title('Skok dT_{z}=5')
 
 subplot(2,2,2)
-plot(T_p_state_space)
+plot(T_p_trans-T_p_trans.Data(1))
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -120,8 +106,8 @@ subplot(2,2,3)
 d_T_z = 0;
 d_T_zew = 2;
 
-sim('my_dom_state_space');
-plot(T_wew_state_space)
+sim('my_dom_trans');
+plot(T_wew_trans-T_wew_trans.Data(1))
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
@@ -130,7 +116,7 @@ title('Skok dT_{zew}=2')
 hold on
 
 subplot(2,2,4)
-plot(T_p_state_space)
+plot(T_p_trans-T_p_trans.Data(1))
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -141,24 +127,12 @@ hold on
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zmienione T_zew i T_z
-% figure
-
-% % wartosci poczatkowe2
-% T_zew1 = T_zewN-5;                                                   
-% T_wew1 = T_wewN;                                                   
-% T_p1 = T_pN;                                                     
-% f_p1 = f_pN;
-% T_z1 = T_zN+5;                                                     
-% cfp = c_p*ro_p*f_pN;
-% M=1/(K_1+K_p);
-% T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
-% T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
 
 % Warunki poczatkowe dla syulacji w state space
 % wartosci poczatkowe2
 T_zew1 = T_zewN+5;                                                   
-T_wew1 = T_wewN;                                                   
-T_p1 = T_pN;                                                     
+T_wew1 = T_wewN+6;                                                   
+T_p1 = T_pN+3;                                                     
 f_p1 = f_pN;
 T_z1 = T_zN-3;                                                     
 M=1/(K_1+K_p);
@@ -166,25 +140,44 @@ T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_
 T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
 
 State_Space_Init=[T_wew0; T_p0];
-sim('my_dom_state_space');
+
+% Macierze uzyte do State Space'a
+% x'= Ax + Bu
+% y = Cx + Du 
+A =[ -(a+K_1+K_w)/C_vw,    K_1/C_vw    ;
+          K_1/C_vp    , -(K_1+K_p)/C_vp];
+            
+B =[ c_p*ro_p*f_pN/C_vw, K_w/C_vw ;
+             0        , K_p/C_vp ];
+C=[1,0;
+   0,1];
+
+D=[0,0;
+   0,0];
+
+% Funkcja ktora zamienia state space na transmitancje
+[L1,M1]=ss2tf(A,B,C,D,1);
+[L2,M2]=ss2tf(A,B,C,D,2);
+
+sim('my_dom_trans');
 %-----------------------------------
 % T_z
 subplot(2,2,1)
 d_T_z = 5;
 d_T_zew = 0;
 
-sim('my_dom_state_space');
-plot(T_wew_state_space)
+sim('my_dom_trans');
+plot(T_wew_trans-T_wew_trans.Data(1),'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{z}=5')
 hold on;
-legend('Nominalne','\Delta T_{zew} i \Delta T_{z}')
+legend('pkt1','pkt2')
 
 subplot(2,2,2)
-plot(T_p_state_space)
+plot(T_p_trans-T_p_trans.Data(1),'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -192,32 +185,33 @@ ylabel("T_{p} [^{\circ}C]")
 hold on;
 title('Skok dT_{z}=5')
 hold on;
-legend('Nominalne','\Delta T_{zew} i \Delta T_{z}')
+legend('pkt1','pkt2')
 %-----------------------------------
 % T_zew
 subplot(2,2,3)
 d_T_z = 0;
 d_T_zew = 2;
 
-sim('my_dom_state_space');
-plot(T_wew_state_space)
+sim('my_dom_trans');
+plot(T_wew_trans-T_wew_trans.Data(1),'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{zew}=2')
 hold on;
-legend('Nominalne','\Delta T_{zew} i \Delta T_{z}')
+legend('pkt1','pkt2')
 
 subplot(2,2,4)
-plot(T_p_state_space)
+plot(T_p_trans-T_p_trans.Data(1),'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('Nominalne','\Delta T_{zew} i \Delta T_{z}')
+legend('pkt1','pkt2')
 %-----------------------------------
+
 
 
