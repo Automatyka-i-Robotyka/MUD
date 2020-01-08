@@ -72,39 +72,45 @@ legend('T_{wew}','T_{p}')
 title('Test prostej kreski, TRANSMITANCJA');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-figure
-% OGOLNE POTWIERDZENIE MODELI
-% Badanie modelu skokami
-% T_zN
-d_T_z = 5;
-d_f_p = 0;
-d_T_zew = 0;
-sim('my_dom_trans');
 
-subplot(2,1,1)
-plot(T_wew_trans)
-hold on;
-plot(T_p_trans)
-grid on;
-title('POTWIERDZENIE MODELI, Skok T_{z}')
-xlabel('Czas [s]')
-ylabel("Temperatura [^{\circ}C]")
-legend('T_{wew}','T_{p}')
 
-subplot(2,1,2)
-% T_zewN
-d_T_z = 0;
-d_f_p = 0;
-d_T_zew = 5;
-sim('my_dom_trans');
-plot(T_wew_trans)
-hold on;
-plot(T_p_trans)
-grid on;
-xlabel('Czas [s]')
-ylabel("Temperatura [^{\circ}C]")
-legend('T_{wew}','T_{p}')
-title('Skok T_{zewN}')
+% %%%%%%
+% TO POTWIERDZENIE MODELI BYLO MOJE TAK DLA SIEBIE, 
+% TO NIE JEST TO CO KAZALA MARLENKA
+%%%%%%
+% figure
+% % OGOLNE POTWIERDZENIE MODELI
+% % Badanie modelu skokami
+% % T_zN
+% d_T_z = 5;
+% d_f_p = 0;
+% d_T_zew = 0;
+% sim('my_dom_trans');
+% 
+% subplot(2,1,1)
+% plot(T_wew_trans)
+% hold on;
+% plot(T_p_trans)
+% grid on;
+% title('POTWIERDZENIE MODELI, Skok T_{z}')
+% xlabel('Czas [s]')
+% ylabel("Temperatura [^{\circ}C]")
+% legend('T_{wew}','T_{p}')
+% 
+% subplot(2,1,2)
+% % T_zewN
+% d_T_z = 0;
+% d_f_p = 0;
+% d_T_zew = 5;
+% sim('my_dom_trans');
+% plot(T_wew_trans)
+% hold on;
+% plot(T_p_trans)
+% grid on;
+% xlabel('Czas [s]')
+% ylabel("Temperatura [^{\circ}C]")
+% legend('T_{wew}','T_{p}')
+% title('Skok T_{zewN}')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
