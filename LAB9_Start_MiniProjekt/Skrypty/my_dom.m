@@ -39,7 +39,7 @@ f_p1 = f_pN;
 % Warunki poczatkowe
 T_wew0 = T_wewN
 T_p0=T_pN
-% Wartosci skoków w step'ach
+% Wartosci skokï¿½w w step'ach
 % Aby otrzymac prosta kreske skoki =0
 steptime=1000;
 d_T_z = 0;
@@ -117,7 +117,6 @@ grid on;
 %-----------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE NOMINALNE NOMINALNE NOMINALNE NOMINALNE NOMINALNE
-% dla nominalnego pozostaja te same
 figure
 %-----------------------------------
 % T_z
