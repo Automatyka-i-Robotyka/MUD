@@ -40,7 +40,15 @@ d_f_p = 0;
 d_T_zew = 0;
 % szybka metoda na transmitancje bez m?ki liczenia na zmiennych
 % %transmitancje
-
+% wartosci poczatkowe2
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+M=1/(K_1+K_p);
+T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
+T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
 % Macierze uzyte do State Space'a
 % x'= Ax + Bu
 % y = Cx + Du 
