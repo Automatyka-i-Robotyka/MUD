@@ -126,7 +126,7 @@ hold on
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zmienione T_zew i T_z
 
-% Warunki poczatkowe dla syulacji w state space
+% Warunki poczatkowe dla syulacji transmitancji
 % wartosci poczatkowe2
 T_zew1 = T_zewN+5;                                                   
 T_wew1 = T_wewN;                                                   
@@ -157,14 +157,15 @@ D=[0,0;
 [L1,M1]=ss2tf(A,B,C,D,1);
 [L2,M2]=ss2tf(A,B,C,D,2);
 
-sim('my_dom_trans');
+
 %-----------------------------------
 % T_z
-subplot(2,2,1)
+
 d_T_z = 5;
 d_T_zew = 0;
 
 sim('my_dom_trans');
+subplot(2,2,1)
 plot(T_wew_trans-T_wew_trans.Data(1),'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
@@ -179,7 +180,6 @@ plot(T_p_trans-T_p_trans.Data(1),'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
-% legend('T_{wew}','T_{p}')
 hold on;
 title('Skok dT_{z}=5')
 hold on;
@@ -205,7 +205,6 @@ plot(T_p_trans-T_p_trans.Data(1),'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
-% legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
 legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')

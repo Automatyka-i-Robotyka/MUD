@@ -41,6 +41,21 @@ d_T_zew = 0;
 % szybka metoda na transmitancje bez m?ki liczenia na zmiennych
 % %transmitancje
 
+
+% Warunki poczatkowe dla syulacji transmitancji
+% wartosci poczatkowe2
+T_zew1 = T_zewN;                                                   
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
+f_p1 = f_pN;
+T_z1 = T_zN;                                                     
+M=1/(K_1+K_p);
+T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
+T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
+
+
+
+
 % Macierze uzyte do State Space'a
 % x'= Ax + Bu
 % y = Cx + Du 
@@ -126,7 +141,7 @@ hold on
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zmienione T_zew i T_z
 
-% Warunki poczatkowe dla syulacji w state space
+% Warunki poczatkowe dla syulacji transmitancji
 % wartosci poczatkowe2
 T_zew1 = T_zewN+5;                                                   
 T_wew1 = T_wewN;                                                   
@@ -157,14 +172,15 @@ D=[0,0;
 [L1,M1]=ss2tf(A,B,C,D,1);
 [L2,M2]=ss2tf(A,B,C,D,2);
 
-sim('my_dom_trans');
+
 %-----------------------------------
 % T_z
-subplot(2,2,1)
+
 d_T_z = 5;
 d_T_zew = 0;
 
 sim('my_dom_trans');
+subplot(2,2,1)
 plot(T_wew_trans,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
@@ -179,7 +195,6 @@ plot(T_p_trans,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
-% legend('T_{wew}','T_{p}')
 hold on;
 title('Skok dT_{z}=5')
 hold on;
@@ -205,7 +220,6 @@ plot(T_p_trans,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
-% legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
 legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
