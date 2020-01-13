@@ -147,7 +147,7 @@ hold on
 T_zew1 = T_zewN+5;                                                   
 T_wew1 = T_wewN;                                                   
 T_p1 = T_pN;                                                     
-f_p1 = f_pN+0.5;
+f_p1 = f_pN;
 T_z1 = T_zN-3;                                                     
 M=1/(K_1+K_p);
 T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
@@ -177,17 +177,17 @@ d_T_z = 5;
 d_T_zew = 0;
 
 sim('my_dom_state_space');
-plot(T_wew_state_space)
+plot(T_wew_state_space,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{z}=5')
 hold on;
-legend('pkt1','pkt2')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 
 subplot(2,2,2)
-plot(T_p_state_space)
+plot(T_p_state_space,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -195,7 +195,7 @@ ylabel("T_{p} [^{\circ}C]")
 hold on;
 title('Skok dT_{z}=5')
 hold on;
-legend('pkt1','pkt2')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 %-----------------------------------
 % T_zew
 subplot(2,2,3)
@@ -203,24 +203,24 @@ d_T_z = 0;
 d_T_zew = 2;
 
 sim('my_dom_state_space');
-plot(T_wew_state_space)
+plot(T_wew_state_space,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{zew}=2')
 hold on;
-legend('pkt1','pkt2')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 
 subplot(2,2,4)
-plot(T_p_state_space)
+plot(T_p_state_space,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('pkt1','pkt2')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 %-----------------------------------
 
 

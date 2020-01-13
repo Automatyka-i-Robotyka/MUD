@@ -185,7 +185,7 @@ ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{z}=5')
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 hold on;
 
 
@@ -197,7 +197,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 hold on;
 title('Skok dT_{z}=5')
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 hold on;
 
 %-----------------------------------
@@ -214,7 +214,7 @@ hold on;
 grid on
 title('Skok dT_{zew}=2')
 hold on;
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 
 subplot(2,2,4)
 plot(T_p_state_space-T_p_state_space.Data(1),'r*')
@@ -224,7 +224,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
 %-----------------------------------
 
 

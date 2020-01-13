@@ -191,11 +191,11 @@ hold on
 % figure
 
 % wartosci poczatkowe2
-T_zew1 = T_zewN;                                                   
+T_zew1 = T_zewN+7;                                                   
 T_wew1 = T_wewN;                                                   
 T_p1 = T_pN;                                                     
-f_p1 = f_pN+0.5;
-T_z1 = T_zN;                                                    
+f_p1 = f_pN;
+T_z1 = T_zN-4;                                                     
 cfp = c_p*ro_p*f_pN;
 M=1/(K_1+K_p);
 T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
@@ -208,14 +208,14 @@ d_T_z = 5;
 d_T_zew = 0;
 d_f_p = 0;
 sim('my_dom_model');
-plot(t,T_wew_sym1)
+plot(t,T_wew_sym1,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 
 subplot(3,2,2)
-plot(t,T_p_sym1)
+plot(t,T_p_sym1,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -228,7 +228,7 @@ d_T_z = 0;
 d_T_zew = 2;
 d_f_p = 0;
 sim('my_dom_model');
-plot(t,T_wew_sym1)
+plot(t,T_wew_sym1,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
@@ -236,7 +236,7 @@ grid on
 hold on
 
 subplot(3,2,4)
-plot(t,T_p_sym1)
+plot(t,T_p_sym1,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -250,7 +250,7 @@ d_T_z = 0;
 d_T_zew = 0;
 d_f_p = 0.2;
 sim('my_dom_model');
-plot(t,T_wew_sym1)
+plot(t,T_wew_sym1,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 grid on
@@ -258,7 +258,7 @@ title('Skok df_{p}=0.2')
 hold on;
 
 subplot(3,2,6)
-plot(t,T_p_sym1)
+plot(t,T_p_sym1,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -293,7 +293,7 @@ xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
 
 subplot(3,2,2)
 plot(t,T_p_sym1)
@@ -302,7 +302,7 @@ xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 hold on;
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
 
 %-----------------------------------
 % T_zew
@@ -317,7 +317,7 @@ ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 hold on
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
 
 
 subplot(3,2,4)
@@ -328,7 +328,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
 
 %-----------------------------------
 % f_p
@@ -343,7 +343,7 @@ ylabel("T_{wew} [^{\circ}C]")
 grid on
 title('Skok df_{p}=0.2')
 hold on;
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
 
 
 subplot(3,2,6)
@@ -354,7 +354,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok df_{p}=0.2')
 hold on
-legend('pkt1','pkt2','pk3')
+legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
 
 %-----------------------------------
 % Ok czyli 3 razy robimy badania:
