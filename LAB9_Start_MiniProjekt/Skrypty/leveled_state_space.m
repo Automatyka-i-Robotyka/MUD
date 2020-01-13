@@ -185,7 +185,7 @@ ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{z}=5')
-legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 hold on;
 
 
@@ -197,7 +197,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 hold on;
 title('Skok dT_{z}=5')
-legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 hold on;
 
 %-----------------------------------
@@ -214,7 +214,7 @@ hold on;
 grid on
 title('Skok dT_{zew}=2')
 hold on;
-legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 
 subplot(2,2,4)
 plot(T_p_state_space-T_p_state_space.Data(1),'r*')
@@ -224,7 +224,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 %-----------------------------------
 
 

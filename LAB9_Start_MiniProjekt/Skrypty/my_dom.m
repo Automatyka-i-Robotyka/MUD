@@ -268,7 +268,6 @@ hold on
 %-----------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Zmienione T_zew, T_z i f_p
-% figure
 
 % wartosci poczatkowe2
 T_zew1 = T_zewN-5;                                                   
@@ -293,7 +292,7 @@ xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','\Delta T_{z}=-3 ^{\circ}C , \Delta T_{zew}=+5 ^{\circ}C i \Delta f_{p}=+0.2 m^3/s')
 
 subplot(3,2,2)
 plot(t,T_p_sym1)
@@ -302,7 +301,7 @@ xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 hold on;
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','\Delta T_{z}=-3 ^{\circ}C , \Delta T_{zew}=+5 ^{\circ}C i \Delta f_{p}=+0.2 m^3/s')
 
 %-----------------------------------
 % T_zew
@@ -317,7 +316,7 @@ ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 hold on
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','\Delta T_{z}=-3 ^{\circ}C , \Delta T_{zew}=+5 ^{\circ}C i \Delta f_{p}=+0.2 m^3/s')
 
 
 subplot(3,2,4)
@@ -328,7 +327,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','\Delta T_{z}=-3 ^{\circ}C , \Delta T_{zew}=+5 ^{\circ}C i \Delta f_{p}=+0.2 m^3/s')
 
 %-----------------------------------
 % f_p
@@ -343,7 +342,7 @@ ylabel("T_{wew} [^{\circ}C]")
 grid on
 title('Skok df_{p}=0.2')
 hold on;
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','\Delta T_{z}=-3 ^{\circ}C , \Delta T_{zew}=+5 ^{\circ}C i \Delta f_{p}=+0.2 m^3/s')
 
 
 subplot(3,2,6)
@@ -354,19 +353,6 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok df_{p}=0.2')
 hold on
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}','\Delta T_{z}, \Delta T_{zew} i \Delta f_{p}');
-
-%-----------------------------------
-% Ok czyli 3 razy robimy badania:
-% 1.Nominalne
-% 2.zmienione TZew i Tz
-% 3. Zmienione TZew Tz i fp
-% 
-% Za kazdym razem robimy 3 skoki:
-% dTzew= (jakies np:) 5
-% dTz=np:5
-% dfp=np: fpN*0.5
-
-
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','\Delta T_{z}=-3 ^{\circ}C , \Delta T_{zew}=+5 ^{\circ}C i \Delta f_{p}=+0.2 m^3/s')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
