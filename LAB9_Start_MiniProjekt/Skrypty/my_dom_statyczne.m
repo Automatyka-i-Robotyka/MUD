@@ -1,5 +1,4 @@
 close all;
-clear all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % NOMINALNE WARTOSCI
 T_zewN = -1;  % 'C
@@ -59,7 +58,7 @@ title('Charakterystyka statyczna T_{wew} od T_{zew}');
 hold on;
 plot(T_zewN, T_wewN, 'r.','Markersize',25);
 grid on;
-legend("T_{wew}")
+legend("T_{wew}","Wartosc Nominalna",'Location','SouthEast')
 
 
 T_zew1 = T_zewN;                                                   
@@ -81,7 +80,7 @@ hold on;
 plot(T_zN, T_wewN, 'r.','Markersize',25);
 title('Charakterystyka statyczna T_{wew} od T_{z}');
 grid on;
-legend("T_{wew}")
+legend("T_{wew}","Wartosc Nominalna",'Location','SouthEast')
 
 T_zew1 = T_zewN;                                                   
 T_wew1 = T_wewN;                                                   
@@ -102,7 +101,7 @@ hold on;
 plot(f_pN, T_wewN, 'r.','Markersize',25);
 title('Charakterystyka statyczna T_{wew} od f_{p}');
 grid on;
-legend("T_{wew}")
+legend("T_{wew}","Wartosc Nominalna",'Location','SouthEast')
 
 T_zew1 = T_zewN;                                                   
 T_wew1 = T_wewN;                                                   
@@ -124,7 +123,7 @@ title('Charakterystyka statyczna T_{p} od T_{zew}');
 hold on;
 plot(T_zewN, T_pN, 'r.','Markersize',25);
 grid on;
-legend("T_{p}")
+legend('T_{p}','Wartosc Nominalna','Location','SouthEast')
 
 T_zew1 = T_zewN;                                                   
 T_wew1 = T_wewN;                                                   
@@ -144,7 +143,7 @@ hold on;
 plot(T_zN, T_pN, 'r.','Markersize',25);
 title('Charakterystyka statyczna T_{p} od T_{z}');
 grid on;
-legend("T_{p}")
+legend('T_{p}','Wartosc Nominalna','Location','SouthEast')
 
 subplot(326);
 T_zew1 = T_zewN;                                                   
@@ -164,6 +163,6 @@ hold on;
 plot(f_pN, T_pN, 'r.','Markersize',25);
 title('Charakterystyka statyczna T_{p} od f_{p}');
 grid on;
-legend("T_{p}")
+legend('T_{p}','Wartosc Nominalna','Location','SouthEast')
 
 

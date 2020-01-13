@@ -79,9 +79,9 @@ subplot(111)
 sim('my_dom_state_space');
 
 
-plot(T_wew_state_space-T_wew_state_space.Data(1))
+plot(T_wew_state_space)
 hold on;
-plot(T_p_state_space-T_p_state_space.Data(1))
+plot(T_p_state_space,'r*')
 grid on;
 title('Test prostej kreski, STATE SPACE')
 xlabel('Czas [s]')
@@ -148,11 +148,11 @@ hold on
 
 % Warunki poczatkowe dla syulacji w state space
 % wartosci poczatkowe2
-T_zew1 = T_zewN+4;                                                   
-T_wew1 = T_wewN-5;                                                   
+T_zew1 = T_zewN+5;                                                   
+T_wew1 = T_wewN;                                                   
 T_p1 = T_pN;                                                     
 f_p1 = f_pN;
-T_z1 = T_zN;                                                     
+T_z1 = T_zN-3;                                                     
 M=1/(K_1+K_p);
 T_wew0 = (c_p*ro_p*f_p1*T_z1+K_1*K_p*T_zew1*M +K_w*T_zew1)/(c_p*ro_p*f_p1+K_1+K_w-(K_1^2)*M);  
 T_p0 = (K_1*T_wew0+K_p*T_zew1)*M;
@@ -185,7 +185,7 @@ ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{z}=5')
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
+legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
 hold on;
 
 
@@ -197,7 +197,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 hold on;
 title('Skok dT_{z}=5')
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
+legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
 hold on;
 
 %-----------------------------------
@@ -214,7 +214,7 @@ hold on;
 grid on
 title('Skok dT_{zew}=2')
 hold on;
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
+legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
 
 subplot(2,2,4)
 plot(T_p_state_space-T_p_state_space.Data(1),'r*')
@@ -224,7 +224,7 @@ ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('Nominalne','\Delta T_{z} i \Delta T_{zew}');
+legend('Nominalne','\Delta T_{z}=-3 i \Delta T_{zew}=+5','Location','SouthEast');
 %-----------------------------------
 
 

@@ -97,15 +97,14 @@ plot(T_p_trans)
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
-% legend('T_{wew}','T_{p}')
 title('Skok dT_{z}=5')
 hold on
 %-----------------------------------
 % T_zew
-subplot(2,2,3)
 d_T_z = 0;
 d_T_zew = 2;
 
+subplot(2,2,3)
 sim('my_dom_trans');
 plot(T_wew_trans)
 xlabel('Czas [s]')
@@ -120,7 +119,6 @@ plot(T_p_trans)
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
-% legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
 %-----------------------------------
@@ -131,8 +129,8 @@ hold on
 % Warunki poczatkowe dla syulacji w state space
 % wartosci poczatkowe2
 T_zew1 = T_zewN+5;                                                   
-T_wew1 = T_wewN+6;                                                   
-T_p1 = T_pN+3;                                                     
+T_wew1 = T_wewN;                                                   
+T_p1 = T_pN;                                                     
 f_p1 = f_pN;
 T_z1 = T_zN-3;                                                     
 M=1/(K_1+K_p);
@@ -167,17 +165,17 @@ d_T_z = 5;
 d_T_zew = 0;
 
 sim('my_dom_trans');
-plot(T_wew_trans)
+plot(T_wew_trans,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{z}=5')
 hold on;
-legend('pkt1','pkt2')
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 
 subplot(2,2,2)
-plot(T_p_trans)
+plot(T_p_trans,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
@@ -185,7 +183,7 @@ ylabel("T_{p} [^{\circ}C]")
 hold on;
 title('Skok dT_{z}=5')
 hold on;
-legend('pkt1','pkt2')
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 %-----------------------------------
 % T_zew
 subplot(2,2,3)
@@ -193,24 +191,24 @@ d_T_z = 0;
 d_T_zew = 2;
 
 sim('my_dom_trans');
-plot(T_wew_trans)
+plot(T_wew_trans,'r*')
 xlabel('Czas [s]')
 ylabel("T_{wew} [^{\circ}C]")
 hold on;
 grid on
 title('Skok dT_{zew}=2')
 hold on;
-legend('pkt1','pkt2')
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 
 subplot(2,2,4)
-plot(T_p_trans)
+plot(T_p_trans,'r*')
 grid on;
 xlabel('Czas [s]')
 ylabel("T_{p} [^{\circ}C]")
 % legend('T_{wew}','T_{p}')
 title('Skok dT_{zew}=2')
 hold on
-legend('pkt1','pkt2')
+legend('Wartosci Nominalne','\Delta T_{z}=-3 ^{\circ}C i \Delta T_{zew}=+5 ^{\circ}C','Location','SouthEast')
 %-----------------------------------
 
 
