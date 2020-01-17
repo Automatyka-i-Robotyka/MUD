@@ -36,43 +36,76 @@ T_3_c=T_d/10;
 T_3_d=T_d*0.99;
 T_3_e=10*T_i;
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sim('transmitancje_lab10')
+% Rysowanie INERCYJNY
+figure(1);
+plot(zad_1_a)
+hold on;
+plot(zad_1_b)
+hold on;
+plot(zad_1_c)
+hold on;
+plot(zad_1_d)
+grid on;
+
+legend('T_{2}=0','T_{2}=T_{1}/10','T_{2}=T_{1}/2','T_{2}=T_{1}\cdot 1.05')
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rysowanie Calkujacy
+
+figure(2);
+plot(zad_2_a)
+hold on;
+plot(zad_2_b)
+hold on;
+plot(zad_2_c)
+hold on;
+plot(zad_2_d)
+hold on;
+plot(zad_2_e)
+grid on;
+
+
+legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}=T_{i}\cdot 10')
 
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rysowanie ROZNICZKUJACY
+
+figure(2);
+plot(zad_3_a)
+hold on;
+plot(zad_3_b)
+hold on;
+plot(zad_3_c)
+hold on;
+plot(zad_3_d)
+hold on;
+plot(zad_3_e)
+grid on;
+
+
+legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}=T_{i}\cdot 10')
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Trzeba jeszce narysowac wszystkie rozniczkjacy osobno bo sie zelwaja
+% Potem model Kumpfmukllera dla inercyjnego
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
