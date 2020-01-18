@@ -71,14 +71,10 @@ grid on;
 
 legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}=T_{i}\cdot 10')
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Rysowanie ROZNICZKUJACY
 
-figure(2);
+figure(3);
 plot(zad_3_a)
 hold on;
 plot(zad_3_b)
@@ -89,12 +85,61 @@ plot(zad_3_d)
 hold on;
 plot(zad_3_e)
 grid on;
-
-
 legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}=T_{i}\cdot 10')
 
+% ROZNICZKUJACY OSOBNO
+
+figure(4);
+subplot(121)
+plot(zad_3_a)
+grid on;
+title("Czlon rozniczkujacy, T_{2}=0.0001")
+xlabel("")
+ylabel("")
 
 
+
+subplot(122)
+plot(zad_3_b)
+grid on;
+title("Czlon rozniczkujacy, T_{2}=T_{d}/100")
+xlabel("")
+ylabel("")
+
+figure(5);
+subplot(121)
+plot(zad_3_c)
+grid on;
+title("Czlon rozniczkujacy, T_{2}=T_{d}/10")
+xlabel("")
+ylabel("")
+
+
+subplot(122)
+plot(zad_3_d)
+grid on;
+title("Czlon rozniczkujacy, T_{2}=T_{d}\cdot 0.99")
+xlabel("")
+ylabel("")
+
+figure(6);
+subplot(111)
+plot(zad_3_e)
+grid on;
+title("Czlon rozniczkujacy, T_{2}=10\cdot T_{i}")
+xlabel("")
+ylabel("")
+
+% % model 3
+% 
+% T_d=1;
+% 
+% 
+% T_{3}=0.0001
+% T_{3}=T_{d}/100
+% T_{3}=T_{d}/10
+% T_{3}=T_{d}*0.99
+% T_{3}=10*T_{i}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -104,6 +149,16 @@ legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Rysowanie INERCYJNY OSOBNO
+figure(11);
+plot(zad_1_a)
+hold on;
+plot(zad_1_b)
+hold on;
+plot(zad_1_c)
+hold on;
+plot(zad_1_d)
+grid on;
 
 
 
