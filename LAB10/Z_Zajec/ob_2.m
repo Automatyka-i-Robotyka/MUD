@@ -54,17 +54,50 @@ legend('T_{2}=0','T_{2}=T_{1}/10','T_{2}=T_{1}/2','T_{2}=T_{1}\cdot 1.05')
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rysowanie INERCYJNY
+figure;
+subplot(221)
+plot(zad_1_a)
+title("T_{2}=0")
+grid on;
+xlabel("")
+ylabel("")
+
+
+
+subplot(222)
+plot(zad_1_b)
+title("T_{2}=T_{1}/10")
+grid on;
+xlabel("")
+ylabel("")
+
+
+
+
+subplot(223)
+plot(zad_1_c)
+title("T_{2}=T_{1}/2")
+grid on;
+xlabel("")
+ylabel("")
+
+
+
+
+subplot(224)
+plot(zad_1_d)
+title("T_{2}=T_{1}\cdot 1.05")
+grid on;
+xlabel("")
+ylabel("")
 
 
 
 
 
-
-
-
-
-
-
+% legend('T_{2}=0','T_{2}=T_{1}/10','T_{2}=T_{1}/2','T_{2}=T_{1}\cdot 1.05')
 
 
 
