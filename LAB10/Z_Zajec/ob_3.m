@@ -31,9 +31,10 @@ plot(zad_1_a)
 hold on;
 plot(k_1_a)
 grid on;
-legend("Orygnalna funkcja","Metoda Kumpfmullera")
-
-
+legend("Model dokladny","Metoda Kumpfmullera")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+title("Odczytane T, metoda Kumpfmullera T=1.3")
 
 
 subplot(222)
@@ -41,7 +42,11 @@ plot(zad_1_b)
 hold on;
 plot(k_1_b)
 grid on;
-legend("Orygnalna funkcja","Metoda Kumpfmullera")
+legend("Model dokladny","Metoda Kumpfmullera")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+title("Odczytane T, metoda Kumpfmullera T=1.4")
+
 
 
 
@@ -50,7 +55,11 @@ plot(zad_1_c)
 hold on;
 plot(k_1_c)
 grid on;
-legend("Orygnalna funkcja","Metoda Kumpfmullera")
+legend("Model dokladny","Metoda Kumpfmullera")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+title("Odczytane T, metoda Kumpfmullera T=1.8")
+
 
 
 subplot(224)
@@ -58,6 +67,10 @@ plot(zad_1_d)
 grid on;
 hold on;
 plot(k_1_d)
-legend("Orygnalna funkcja","Metoda Kumpfmullera")
+legend("Model dokladny","Metoda Kumpfmullera")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+title("Odczytane T, metoda Kumpfmullera T=2.5")
+
 
 % legend('T_{2}=0','T_{2}=T_{1}/10','T_{2}=T_{1}/2','T_{2}=T_{1}\cdot 1.05')

@@ -48,6 +48,8 @@ plot(zad_1_c)
 hold on;
 plot(zad_1_d)
 grid on;
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 legend('T_{2}=0','T_{2}=T_{1}/10','T_{2}=T_{1}/2','T_{2}=T_{1}\cdot 1.05')
 
@@ -67,6 +69,8 @@ plot(zad_2_d)
 hold on;
 plot(zad_2_e)
 grid on;
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 
 legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}=T_{i}\cdot 10')
@@ -86,6 +90,8 @@ hold on;
 plot(zad_3_e)
 grid on;
 legend('T_{2}=0','T_{2}=T_{i}/100','T_{2}=T_{i}/10','T_{2} \approx T_{i}','T_{2}=T_{i}\cdot 10')
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 % ROZNICZKUJACY OSOBNO
 
@@ -94,8 +100,9 @@ subplot(121)
 plot(zad_3_a)
 grid on;
 title("Czlon rozniczkujacy, T_{2}=0.0001")
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+
 
 
 
@@ -103,32 +110,36 @@ subplot(122)
 plot(zad_3_b)
 grid on;
 title("Czlon rozniczkujacy, T_{2}=T_{d}/100")
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+
 
 figure(5);
 subplot(121)
 plot(zad_3_c)
 grid on;
 title("Czlon rozniczkujacy, T_{2}=T_{d}/10")
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+
 
 
 subplot(122)
 plot(zad_3_d)
 grid on;
 title("Czlon rozniczkujacy, T_{2}=T_{d}\cdot 0.99")
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+
 
 figure(6);
 subplot(111)
 plot(zad_3_e)
 grid on;
 title("Czlon rozniczkujacy, T_{2}=10\cdot T_{i}")
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+
 
 % % model 3
 % 
@@ -159,6 +170,8 @@ plot(zad_1_c)
 hold on;
 plot(zad_1_d)
 grid on;
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 
 

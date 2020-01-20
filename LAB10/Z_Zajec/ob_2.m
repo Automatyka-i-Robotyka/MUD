@@ -48,6 +48,8 @@ plot(zad_1_c)
 hold on;
 plot(zad_1_d)
 grid on;
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 legend('T_{2}=0','T_{2}=T_{1}/10','T_{2}=T_{1}/2','T_{2}=T_{1}\cdot 1.05')
 
@@ -61,37 +63,34 @@ subplot(221)
 plot(zad_1_a)
 title("T_{2}=0")
 grid on;
-xlabel("")
-ylabel("")
-
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 
 subplot(222)
 plot(zad_1_b)
 title("T_{2}=T_{1}/10")
 grid on;
-xlabel("")
-ylabel("")
-
-
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 
 subplot(223)
 plot(zad_1_c)
 title("T_{2}=T_{1}/2")
 grid on;
-xlabel("")
-ylabel("")
-
-
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
 
 
 subplot(224)
 plot(zad_1_d)
 title("T_{2}=T_{1}\cdot 1.05")
 grid on;
-xlabel("")
-ylabel("")
+xlabel("Czas [s]")
+ylabel("Odpowiedz skokowa")
+
+
 
 
 
