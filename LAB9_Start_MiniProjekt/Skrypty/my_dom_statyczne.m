@@ -20,7 +20,7 @@ C_vp = c_p*ro_p*V_p;   % J/k
 % Do zmniejszenia zapisu
 a=c_p*ro_p*f_pN;
 % Pro_porcja K
-p=0.25;
+p=1.25;
 % Obliczanie wspolczynnikow K
 A = [(T_wewN-T_pN), (T_wewN-T_zewN); 
      (T_wewN-T_pN), (-p*(T_pN-T_zewN))];
