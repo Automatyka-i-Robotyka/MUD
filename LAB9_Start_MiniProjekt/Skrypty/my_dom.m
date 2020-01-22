@@ -57,6 +57,7 @@ title('Test prostej kreski, NL');
 xlabel('Czas [s]')
 ylabel("Temperatura [^{\circ}C]")
 legend('T_{wew}','T_{p}')
+% set(gca,'FontSize',30)
 
 
 
