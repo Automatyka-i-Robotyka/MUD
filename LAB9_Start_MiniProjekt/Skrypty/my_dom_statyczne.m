@@ -6,7 +6,7 @@ T_zN = 24;    % 'C
 T_pN = 19;    % 'C
 T_wewN = 21;  % 'C
 f_pN = 1;     % m^3/s
-c_p = 1000; % J/(kg*K)
+c_p = 1000; % J/(kg*C)
 ro_p = 1.2; % kg/m^3
 dl = 20;   % m
 szer = 10; % m
@@ -14,8 +14,8 @@ h_w = 5;   % m
 h_p = 1.5; % m
 V_w = dl*szer*h_w;   % m
 V_p = dl*szer*h_p/3; % m dach jest ostroslupem
-C_vw = c_p*ro_p*V_w;   % J/K
-C_vp = c_p*ro_p*V_p;   % J/k
+C_vw = c_p*ro_p*V_w;   % J/C
+C_vp = c_p*ro_p*V_p;   % J/C
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Do zmniejszenia zapisu
 a=c_p*ro_p*f_pN;
@@ -27,9 +27,9 @@ A = [(T_wewN-T_pN), (T_wewN-T_zewN);
 B = [a*(T_zN-T_wewN); 0];
 K_matrix = inv(A)*B;
 % Wspolczynniki przenikalnosci cieplnej K
-K_1=K_matrix(1,1); % W/K
-K_w=K_matrix(2,1); % W/K
-K_p=p*K_w;         % W/K
+K_1=K_matrix(1,1); % W/C
+K_w=K_matrix(2,1); % W/C
+K_p=p*K_w;         % W/C
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
