@@ -1,3 +1,0 @@
-Model dokładny - model nieliniowy
-A1,A2 - pole powierzchni dna
-Aw1,Aw2 - pole otworu
